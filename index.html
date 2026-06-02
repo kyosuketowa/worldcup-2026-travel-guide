@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
 <meta name="theme-color" content="#0f2c5e">
-<title>森下家 2026アメリカ大冒険 / 旅のしおり v12</title>
+<title>森下家 2026アメリカ大冒険 / 旅のしおり v13</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
@@ -703,6 +703,24 @@ h2::before{content:"";position:absolute;top:0;left:0;width:46px;height:3px;borde
   .food-card:hover{transform:none !important}
 }
 
+/* ============================================================
+   v13 — W杯ページ強化（注目選手スポット・地図ランドマーク）
+   ============================================================ */
+.player-spot{display:flex;align-items:center;gap:13px;margin:16px 0 0;padding-top:14px;
+  border-top:1px solid var(--border)}
+.player-spot img{width:58px;height:58px;border-radius:50%;object-fit:cover;flex:none;
+  border:2px solid var(--theme,var(--accent));box-shadow:var(--shadow-sm)}
+.player-spot figcaption{display:flex;flex-direction:column;gap:2px;min-width:0}
+.player-spot figcaption strong{font-family:'Cormorant Garamond',var(--font-serif);font-size:16px;
+  color:var(--primary);font-weight:700;line-height:1.2}
+.player-spot figcaption span{font-size:12px;color:var(--ink-l)}
+/* 地図ランドマーク用ピン（Globe Life Field / Texas Live! 等） */
+.day-pin-landmark{display:flex;align-items:center;justify-content:center;width:26px;height:26px;
+  background:#fff;border:2px solid var(--gold);border-radius:50%;font-size:13px;
+  box-shadow:0 2px 6px rgba(0,0,0,.25)}
+.day-map-legend li.landmark{border-left-color:var(--gold)}
+.day-map-legend li.landmark .pn{color:var(--gold)}
+
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
@@ -719,7 +737,7 @@ h2::before{content:"";position:absolute;top:0;left:0;width:46px;height:3px;borde
   <div class="sb-head">
     <div class="brand">森下家<span class="acc"> / </span>2026</div>
     <div class="sub">USA World Cup Adventure<br>（アメリカW杯旅行）</div>
-    <span class="ver">VERSION 12.0</span>
+    <span class="ver">VERSION 13.0</span>
   </div>
   <nav class="sb-menu">
     <div class="sb-grp">
@@ -1720,7 +1738,7 @@ h2::before{content:"";position:absolute;top:0;left:0;width:46px;height:3px;borde
 
 <!-- ============ 07. DAY 6/14 W杯 ============ -->
 <section id="d14" class="page">
-  <div class="page-hero" style="background-image:linear-gradient(0deg,rgba(15,44,94,.35) 0%,rgba(15,44,94,.05) 55%,rgba(15,44,94,.5) 100%),url('images/stadium.jpg')">
+  <div class="page-hero" style="background-image:linear-gradient(0deg,rgba(15,44,94,.35) 0%,rgba(15,44,94,.05) 55%,rgba(15,44,94,.5) 100%),url('images/at-t-stadium.jpg')">
     <div class="page-hero-inner">
       <div class="page-hero-kicker">DAY 04 · 6/14 SUN · 4日目</div>
       <h1 class="page-hero-title">⚽ 人生で一度のキックオフ</h1>
@@ -1739,7 +1757,7 @@ h2::before{content:"";position:absolute;top:0;left:0;width:46px;height:3px;borde
 
   <figure class="match-collage">
     <img src="images/wc-match-collage.jpg" alt="日本代表 vs オランダ代表 選手コラージュ">
-    <figcaption>🇯🇵 <ruby>久保建英<rt>くぼ たけふさ</rt></ruby>・<ruby>堂安律<rt>どうあん りつ</rt></ruby>・<ruby>三苫薫<rt>みとま かおる</rt></ruby>　🆚　🇳🇱 ファン・ダイク・デ・ヨング・ハクポ</figcaption>
+    <figcaption>🇯🇵 <ruby>久保建英<rt>くぼ たけふさ</rt></ruby>・<ruby>堂安律<rt>どうあん りつ</rt></ruby>・<ruby>鎌田大地<rt>かまだ だいち</rt></ruby>　🆚　🇳🇱 ファン・ダイク・デ・ヨング・ハクポ</figcaption>
   </figure>
 
   <h2>試合情報 / Match Details</h2>
@@ -1769,6 +1787,39 @@ h2::before{content:"";position:absolute;top:0;left:0;width:46px;height:3px;borde
           <div class="row"><div class="lbl">印刷</div><div class="val c-ng">不可（FIFA公式アプリで表示）</div></div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <h2>⭐ 両チーム注目選手 / Players to Watch</h2>
+  <p class="small" style="margin:-.4em 0 14px">2026年5月27日に両国とも背番号・26名を発表済み。</p>
+  <div class="grid grid-2">
+    <div class="card accent">
+      <img src="images/japan-national-team.jpg" alt="日本代表 SAMURAI BLUE" loading="lazy" style="width:100%;border-radius:10px;margin-bottom:14px">
+      <h4>🇯🇵 日本代表 SAMURAI BLUE</h4>
+      <ul class="simple">
+        <li><strong>8 <ruby>久保建英<rt>くぼ たけふさ</rt></ruby></strong>（レアル・ソシエダ）— 司令塔</li>
+        <li><strong>10 <ruby>堂安律<rt>どうあん りつ</rt></ruby></strong>（フランクフルト）— エース番号</li>
+        <li><strong>15 <ruby>鎌田大地<rt>かまだ だいち</rt></ruby></strong>（クリスタル・パレス）— 中盤の要</li>
+        <li><strong>18 <ruby>上田綺世<rt>うえだ あやせ</rt></ruby></strong>（フェイエノールト）— CF</li>
+        <li><strong>14 <ruby>伊東純也<rt>いとう じゅんや</rt></ruby></strong>（ゲンク）— 右サイド</li>
+        <li><strong>6 <ruby>遠藤航<rt>えんどう わたる</rt></ruby></strong>（リヴァプール）— 主将格</li>
+      </ul>
+      <p class="small muted">※ 負傷離脱した主力左ウインガーは今大会選外。背番号7は<ruby>田中碧<rt>たなか あお</rt></ruby>が継承。守備の要は<ruby>板倉滉<rt>いたくら こう</rt></ruby>。</p>
+      <figure class="player-spot"><img src="images/kubo.jpg" alt="久保建英" loading="lazy"><figcaption><strong><ruby>久保建英<rt>くぼ たけふさ</rt></ruby> #8</strong><span>レアル・ソシエダ／司令塔</span></figcaption></figure>
+    </div>
+    <div class="card">
+      <img src="images/netherlands-national-team.jpg" alt="オランダ代表 Oranje" loading="lazy" style="width:100%;border-radius:10px;margin-bottom:14px">
+      <h4>🇳🇱 オランダ代表 Oranje　<span class="tag acc">FIFAランク7位・優勝候補</span></h4>
+      <ul class="simple">
+        <li><strong>ファン・ダイク</strong>（リヴァプール）— 主将・世界最高峰CB</li>
+        <li><strong>デ・ヨング</strong>（バルセロナ）— 司令塔</li>
+        <li><strong>ハクポ</strong>（リヴァプール）— 得点源</li>
+        <li><strong>デパイ</strong>（コリンチャンス）— 代表最多得点者（55点）</li>
+        <li><strong>フラーフェンベルフ</strong>（リヴァプール）— 中盤</li>
+        <li><strong>ダンフリース</strong>（インテル）— 右WB</li>
+      </ul>
+      <p class="small muted">※ 3度の準優勝、優勝経験なし。日本にとって格上の難敵。デ・リフト／シモンズは負傷で選外。</p>
+      <figure class="player-spot"><img src="images/van-dijk.jpg" alt="Virgil van Dijk" loading="lazy"><figcaption><strong>ファン・ダイク（主将）</strong><span>リヴァプール／世界最高峰CB</span></figcaption></figure>
     </div>
   </div>
 
@@ -1834,11 +1885,13 @@ h2::before{content:"";position:absolute;top:0;left:0;width:46px;height:3px;borde
   <h2>🗺️ この日のマップ</h2>
     <div id="lmap-d14" class="leaflet-map" aria-label="この日のマップ"></div>
     <div class="transport-key">
-      <span class="tk"><span class="sw walk"></span>🚶 徒歩</span>
+      <span class="tk"><span class="sw walk" style="background:#bc002d"></span>🚶 徒歩 約25分（日の丸ロード）</span>
     </div>
     <ol class="day-map-legend">
-      <li class="hub"><span class="pn hub">H</span><strong>コートヤード・アーリントン</strong>（試合日の拠点）<a class="map-link" href="https://maps.google.com/?q=Courtyard+Arlington+1500+Nolan+Ryan" target="_blank" rel="noopener">📍 Maps</a></li>
-      <li class="stop"><span class="pn">1</span><span class="time">12:30</span>AT&amp;T Stadium 入場（⚽ Block 440 / Row 19 / Seat 7-10）<a class="map-link" href="https://maps.google.com/?q=AT%26T+Stadium+Arlington" target="_blank" rel="noopener">📍 Maps</a></li>
+      <li class="hub"><span class="pn hub">🏨</span><strong>コートヤード・アーリントン</strong>（試合日の拠点）<a class="map-link" href="https://maps.google.com/?q=Courtyard+Arlington+1500+Nolan+Ryan" target="_blank" rel="noopener">📍 Maps</a></li>
+      <li class="stop"><span class="pn">🏟️</span><span class="time">12:30</span>AT&amp;T Stadium 入場（⚽ Block 440 / Row 19 / Seat 7-10）・徒歩約25分<a class="map-link" href="https://maps.google.com/?q=AT%26T+Stadium+Arlington" target="_blank" rel="noopener">📍 Maps</a></li>
+      <li class="landmark"><span class="pn">⚾</span>Globe Life Field（テキサス・レンジャーズ本拠・スタジアム隣）<a class="map-link" href="https://maps.google.com/?q=Globe+Life+Field+Arlington" target="_blank" rel="noopener">📍 Maps</a></li>
+      <li class="landmark"><span class="pn">🍺</span>Texas Live!（飲食・観戦エンタメ施設・試合前後に便利）<a class="map-link" href="https://maps.google.com/?q=Texas+Live+Arlington" target="_blank" rel="noopener">📍 Maps</a></li>
     </ol>
     <div class="btn-row" style="display:flex;justify-content:center">
       <a href="https://www.google.com/maps/dir/?api=1&origin=Courtyard+Arlington+1500+Nolan+Ryan&destination=AT%26T+Stadium+Arlington&travelmode=walking" target="_blank" rel="noopener" class="btn-outline">🗺️ Google Maps でルート表示</a>
@@ -2781,6 +2834,19 @@ h2::before{content:"";position:absolute;top:0;left:0;width:46px;height:3px;borde
       <tr><td>現地追加保険 DW + SLP（必ず購入）</td><td>$70-100</td></tr>
       <tr><td class="w-bold c-acc">最終合計見込み</td><td class="w-bold c-acc">$335-365（約¥52,000-57,000）</td></tr>
     </table>
+  </div>
+
+  <div class="callout warn">
+    <div class="ic">🛡️</div>
+    <div>
+      <div class="b">レンタカー保険・契約の重要注意（Premium Luxury SUV クラス）</div>
+      <div class="c">
+        <strong>① 保険証明の提示が必要：</strong>このクラスはレンタル時に「<strong>譲渡可能な自動車保険の証明</strong>（proof of transferable auto insurance）」の提示を求められる。日本の自動車保険は通常米国で無効なため、<strong>当日 SLP＋DW を購入して要件を満たす（実質必須）</strong>。<br>
+        <strong>② デポジット $850</strong> は <strong>Visa / Master / Amex / Discover のクレジットカードのみ</strong>（現金・デビット・プリペイド不可）。<br>
+        <strong>③ 追加ドライバーは配偶者のみ無料</strong>（当日同席のうえ、運転免許の提示が必要）。<br>
+        <strong>④ 時間外返却は不可：</strong>店舗営業は18:00まで。<strong>17:30 厳守</strong>で係員立ち会い返却（営業時間外のキーボックス投入は過剰請求リスク大）。
+      </div>
+    </div>
   </div>
 
   <div class="day-map">
@@ -3929,12 +3995,13 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     d14: {
       pins: [
-        {type:'hub', name:'Courtyard Arlington', lat:32.7541, lng:-97.0845},
-        {type:'stop', n:1, time:'12:30', name:'AT&T Stadium（Block 440）', lat:32.7478, lng:-97.0929}
+        {type:'hub', emoji:'🏨', name:'Courtyard Arlington（試合日の拠点）', lat:32.7556, lng:-97.0838},
+        {type:'stop', n:1, emoji:'🏟️', time:'12:30', name:'AT&T Stadium（Block 440・キックオフ会場）', lat:32.7473, lng:-97.0945},
+        {type:'landmark', emoji:'⚾', name:'Globe Life Field（レンジャーズ本拠）', lat:32.7473, lng:-97.0828},
+        {type:'landmark', emoji:'🍺', name:'Texas Live!（飲食・観戦エンタメ施設）', lat:32.7502, lng:-97.0833}
       ],
       routes: [
-        {from:0, to:1, mode:'walk', label:'🚶 徒歩 25分'},
-        {from:1, to:0, mode:'walk', label:'🚶 徒歩 25分（試合後）'}
+        {from:0, to:1, mode:'walk', color:'#bc002d', weight:5, label:'🚶 徒歩 約25分（日の丸ロード）'}
       ]
     },
     d15: {
@@ -4040,6 +4107,14 @@ document.addEventListener('DOMContentLoaded', function() {
       iconAnchor: [17, 17]
     });
   }
+  function landmarkIcon(emoji) {
+    return L.divIcon({
+      html: '<div class="day-pin-landmark">' + (emoji || '📍') + '</div>',
+      className: '',
+      iconSize: [26, 26],
+      iconAnchor: [13, 13]
+    });
+  }
 
   var initialized = {};
   function initMap(dayId) {
@@ -4066,11 +4141,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var bounds = [];
     cfg.pins.forEach(function(p) {
-      var icon = p.type === 'hub' ? hubIcon() : stopIcon(p.n);
+      var icon = p.type === 'hub' ? hubIcon()
+               : p.type === 'landmark' ? landmarkIcon(p.emoji)
+               : stopIcon(p.emoji || p.n);
       var m = L.marker([p.lat, p.lng], {icon: icon, title: p.name}).addTo(map);
       var popup = '<div style="font-size:13px;line-height:1.5">' +
         (p.type === 'hub' ? '🏨 <strong>' + p.name + '</strong>（出発・帰着）' :
-         '<strong>' + p.n + '</strong> ' + (p.time ? '<span style="color:#666">'+p.time+'</span> ' : '') + p.name) +
+         p.type === 'landmark' ? (p.emoji || '📍') + ' <strong>' + p.name + '</strong>（周辺スポット）' :
+         '<strong>' + (p.emoji || p.n) + '</strong> ' + (p.time ? '<span style="color:#666">'+p.time+'</span> ' : '') + p.name) +
         '</div>';
       m.bindPopup(popup);
       bounds.push([p.lat, p.lng]);
@@ -4080,8 +4158,10 @@ document.addEventListener('DOMContentLoaded', function() {
       var a = cfg.pins[r.from];
       var b = cfg.pins[r.to];
       if (!a || !b) return;
-      var style = MODE_STYLE[r.mode] || {color:'#999', weight:3};
-      var poly = L.polyline([[a.lat, a.lng], [b.lat, b.lng]], Object.assign({opacity: 0.82}, style)).addTo(map);
+      var style = Object.assign({}, MODE_STYLE[r.mode] || {color:'#999', weight:3});
+      if (r.color) style.color = r.color;
+      if (r.weight) style.weight = r.weight;
+      var poly = L.polyline([[a.lat, a.lng], [b.lat, b.lng]], Object.assign({opacity: 0.85}, style)).addTo(map);
       poly.bindTooltip(r.label, {permanent:false, direction:'center', className:'rte-tooltip'});
     });
 

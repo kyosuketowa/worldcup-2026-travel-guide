@@ -63,6 +63,20 @@ Getty Images / AP Photo は使用禁止。
 
 ---
 
+## ✅ v13 で新規取得した画像（2026-06-02 · W杯ページ刷新）
+
+すべてDL・サイズ検証（>10KB）・最大幅1600px再圧縮・実JPEG再エンコード済み。
+
+| ファイル | 内容 | 出典 | ライセンス |
+|---------|------|------|----------|
+| `at-t-stadium.jpg` | AT&T Stadium 外観（高画質・6000×4000→1600px） | Commons: Arlington June 2020 4 (AT&T Stadium) | CC BY-SA |
+| `japan-national-team.jpg` | 日本代表 SAMURAI BLUE 集合写真（2022カタールW杯後） | Commons: Fumio Kishida with Japan National Football Team after Qatar World Cup (2) | CC BY 4.0 |
+| `netherlands-national-team.jpg` | オランダ代表 男子 集合写真 | Commons: Netherlands national football team (51100879753) | CC BY-SA 2.0 |
+| `kubo.jpg` | 久保建英（Takefusa Kubo, 2019。元PNG→JPEG再エンコード） | Wikipedia "Takefusa Kubo" pageimage | CC BY-SA (Commons) |
+| `van-dijk.jpg` | ファン・ダイク（Virgil van Dijk, 2016） | Wikipedia "Virgil van Dijk" pageimage | CC BY-SA (Commons) |
+
+※ 日本代表写真は2022年大会後の集合写真（当時の岸田首相を含む）であり、2026年の26名そのものではない。「SAMURAI BLUE のイメージ写真」として使用。
+
 ## ⚠️ ライセンス注意
 
 - Wikimedia Commons 画像は出典・帰属明記の上で家族用個人利用として使用。
