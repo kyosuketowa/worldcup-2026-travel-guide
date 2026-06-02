@@ -1,0 +1,126 @@
+[[haunted-mansion.jpg]]
+   query: "Haunted Mansion Disneyland exterior"
+     -> 20 hits
+     ✅ use: File:Haunted Mansion Holiday Exterior.JPG
+   💾 282,787B
+[[pirates-caribbean.jpg]]
+   query: "Pirates Caribbean Disneyland attraction"
+     -> 30 hits
+     ✅ use: File:Pirates of the Caribbean sign, Disneyland.jpg
+   💾 295,078B
+[[cars-land.jpg]]
+   query: "Cars Land Disneyland night"
+     -> 20 hits
+     ✅ use: File:Project Blue Book report - 1957-11-6778864-Anaheim-Disneyland--Cal.pdf
+   💾 320,512B
+[[pixar-pier.jpg]]
+   query: "Paradise Pier Disneyland"
+     -> 30 hits
+     skip File:Disney's Paradise Pier Hotel (19500598792).jp: HTTPError
+     ✅ use: File:Disneyland Paradise Pier Hotel.jpg
+   💾 312,879B
+[[small-world.jpg]]
+   query: "small world Disneyland facade"
+     -> 8 hits
+     ✅ use: File:"it's a small world" Facade and Entrance Sign, June 2025.jpg
+   💾 321,488B
+[[indy-adventure.jpg]]
+   query: "Indiana Jones Adventure Disneyland entrance"
+     -> 1 hits
+     skip File:Dlp indiana queue.jpg: HTTPError
+   query: "Indiana Jones Adventure queue"
+     -> 14 hits
+     ✅ use: File:Dlp indiana queue.jpg
+   💾 425,009B
+[[rise-resistance.jpg]]
+   query: "Galaxy's Edge Disneyland Millennium Falcon"
+     -> 30 hits
+     ✅ use: File:Millennium Falcon Star Wars Galaxy's Edge Disneyland Resort in Anaheim, California (48537418942).jpg
+   💾 345,278B
+[[tianas-bayou.jpg]]
+   query: "Splash Mountain Disneyland"
+     -> 30 hits
+     skip File:Splash Mountain at Disneyland - final drop.jp: HTTPError
+     skip File:Splash Mountain at Disneyland-Shulman and Tha: HTTPError
+     skip File:Splash Mountain at Disneyland.JPG: HTTPError
+     skip File:Splash Mountain (Disneyland) 1.jpg: HTTPError
+     skip File:Splash Mountain (Disneyland) 2.jpg: HTTPError
+     skip File:Splash Mountain Exterior.JPG: HTTPError
+     skip File:Tokyo Disneyland - Splash Mountain and Riverb: HTTPError
+     skip File:Splash Mountain - panoramio.jpg: HTTPError
+     skip File:Splash Mountain - Disneyland.jpg: HTTPError
+     skip File:Disneyland-SplashMtn-exterior.jpg: HTTPError
+     skip File:Splash Mountain - panoramio - Vamsi.jpg: HTTPError
+     skip File:Splash Mountain (Tokyo Disneyland) 2.jpg: HTTPError
+     skip File:Splash Mountain (Tokyo Disneyland) 1.jpg: HTTPError
+     skip File:Disneyland-SplashMtn-sign.jpg: HTTPError
+     skip File:Splash Mountain.JPG: HTTPError
+   query: "Tiana Bayou Adventure attraction"
+     -> 2 hits
+     skip File:Tiana's Bayou Adventure at Disneyland.jpg: HTTPError
+     skip File:Tiana's Bayou Adventure construction, May 202: HTTPError
+   ❌ 失敗
+[[mickey-mouse.jpg]]
+   query: "Mickey Mouse parade Disneyland"
+     -> 16 hits
+     skip File:Disneyland Hosts Victory Parade for Los Angel: HTTPError
+     skip File:Tokyo Disneyland Tokyo Disneyland Electrical : HTTPError
+     skip File:Mickey's WaterWorks Parade Float.jpg: HTTPError
+     skip File:Tokyo Disneyland Tokyo Disneyland Electrical : HTTPError
+     skip File:Tokyo Disneyland Tokyo Disneyland Electrical : HTTPError
+     skip File:Tokyo Disneyland Tokyo Disneyland Electrical : HTTPError
+     skip File:Hong Kong Disneyland (10098154744).jpg: HTTPError
+     skip File:Hong Kong Disneyland (10098272103).jpg: HTTPError
+     skip File:A Christmas Fantasy Parade (35274541110).jpg: HTTPError
+     skip File:Hong Kong Disneyland (10098248016).jpg: HTTPError
+     skip File:Hong Kong Disneyland - ovedc - 3.JPG: HTTPError
+     skip File:Disneyland parade.jpg: HTTPError
+     skip File:Dis fof mickey.JPG: HTTPError
+     skip File:Motion Pictures 1960 to 1969 (IA Motionpict19: HTTPError
+     skip File:HIROHITO.pdf: HTTPError
+   query: "Mickey Mouse character Disneyland"
+     -> 20 hits
+     skip File:Hong Kong Disneyland - ovedc - 3.JPG: HTTPError
+     skip File:HK Disneyland fountain by Dave Q.jpg: HTTPError
+     skip File:Disneyland Hosts Victory Parade for Los Angel: HTTPError
+     skip File:Hong Kong Disneyland Fountain.JPG: HTTPError
+     skip File:Boeing 737-990 ‘N318AS’ Alaska (Disneyland li: HTTPError
+     skip File:The Muldoons in Disneyland.jpg: HTTPError
+     skip File:Hkdis 2.JPG: HTTPError
+     skip File:20161203上海迪士尼乐园华特迪士尼与米老鼠铜像.jpg: HTTPError
+     skip File:香港迪士尼樂園 (24).JPG: HTTPError
+     skip File:HKMickeyMinnieMainStreetSummer07.JPG: HTTPError
+     skip File:Bill Rigney and Disney characters at groundbr: HTTPError
+     skip File:The Sorcerer's Apprentice, Voyage to the Crys: HTTPError
+     skip File:Wonderground gallery.jpg: HTTPError
+     skip File:Walt Disney with Company at Press Conference.: HTTPError
+     skip File:Motion Pictures 1960 to 1969 (IA Motionpict19: HTTPError
+   ❌ 失敗
+[[fireworks.jpg]]
+   query: "Sleeping Beauty Castle fireworks"
+     -> 30 hits
+     skip File:Fireworks at Disneyland in Anaheim, Californi: HTTPError
+     skip File:Hong Kong Disneyland Castle 2 by Dave Q.jpg: HTTPError
+     skip File:Disney fireworks.jpg: HTTPError
+     skip File:MU KPB 047 - Arthur Quiller-Couch - Edmund Du: HTTPError
+     skip File:The sleeping beauty and other fairy tales fro: HTTPError
+     skip File:Disney In The Stars Fireworks (2037747351).jp: HTTPError
+     skip File:Believe in Holiday Magic Fireworks.jpg: HTTPError
+     skip File:Disneyland HK Fireworks MVI 5741.ogv: HTTPError
+     skip File:Disneyland HK Fireworks MVI 5737.ogv: HTTPError
+     skip File:Hong Kong Disneyland by Denn.jpg: HTTPError
+     skip File:The sleeping beauty - a play for home acting : HTTPError
+     skip File:HalloweenScreams.png: HTTPError
+     skip File:Disney in star.jpg: HTTPError
+     skip File:Star Wars- Galaxy's Edge Disneyland Fireworks: HTTPError
+   query: "Disneyland fireworks night"
+     -> 6 hits
+     skip File:The Disneyland Fireworks Show.jpg: HTTPError
+     skip File:Red fireworks surround night sky beside Cinde: HTTPError
+     skip File:Fireworks over Cinderella Castle Magic Kingdo: HTTPError
+     skip File:Baby, you're a firework - Flickr - kevin dool: HTTPError
+     skip File:Tivoli (4234979964).jpg: HTTPError
+     skip File:10july2005.pdf: HTTPError
+   ❌ 失敗
+
+=== 7/10 ===
