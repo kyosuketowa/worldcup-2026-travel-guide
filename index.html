@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
 <meta name="theme-color" content="#0f2c5e">
-<title>森下家 2026アメリカ大冒険 / 旅のしおり v10</title>
+<title>森下家 2026アメリカ大冒険 / 旅のしおり v11</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
@@ -506,6 +506,87 @@ ruby rt{font-size:0.55em;color:#888;font-weight:400;line-height:1}
 .food-card.star{border-left:3px solid var(--accent)}
 .food-card.gold{border-left:3px solid var(--gold);background:linear-gradient(135deg,#fffcf5 0%,#fff 100%)}
 
+/* ============================================================
+   v11 — 控えめで上品な演出（追加のみ・既存スタイルは変更しない）
+   ============================================================ */
+
+/* 1. スクロール出現アニメ（JSが .js-reveal を付与したものだけ対象） */
+.js-reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease-out,transform .6s ease-out;will-change:opacity,transform}
+.js-reveal.reveal-in{opacity:1;transform:none}
+
+/* 5. タイムラインのドット・ポップ（出現時に scale 0→1、バウンスなし） */
+.js-reveal.tl-item::before{transform:scale(0);transition:transform .3s ease}
+.js-reveal.tl-item.reveal-in::before{transform:scale(1)}
+
+/* 2. 表紙カウントダウン */
+.cover-countdown{margin-top:26px;display:inline-flex;align-items:baseline;gap:10px;
+  padding:12px 20px;border:1px solid rgba(255,255,255,.28);border-radius:999px;
+  background:rgba(255,255,255,.06);backdrop-filter:blur(4px);
+  font-family:var(--font-mono);letter-spacing:.06em}
+.cover-countdown .cd-label{font-size:11px;color:#ffd97f;text-transform:uppercase;letter-spacing:.18em}
+.cover-countdown .cd-num{font-family:var(--font-serif);font-size:30px;font-weight:700;color:#fff;line-height:1}
+.cover-countdown .cd-unit{font-size:12px;color:rgba(255,255,255,.85)}
+
+/* 3. 数字カウントアップ（表示自体は通常テキスト） */
+.countup{font-variant-numeric:tabular-nums}
+
+/* 4. 画像ホバーズーム（.place-card は既に overflow:hidden） */
+.place-card img{transition:transform .5s ease,filter .5s ease}
+.place-card:hover img,.place-card:focus-within img{transform:scale(1.05);filter:brightness(1.05)}
+
+/* 7. ページ最上部へ戻るボタン */
+#to-top{position:fixed;right:24px;bottom:84px;z-index:90;width:44px;height:44px;
+  border:1px solid var(--border);border-radius:50%;background:rgba(255,255,255,.82);
+  backdrop-filter:blur(8px);color:var(--primary);font-size:20px;line-height:1;cursor:pointer;
+  box-shadow:var(--shadow);opacity:0;visibility:hidden;transform:translateY(10px);
+  transition:opacity .35s ease,transform .35s ease,visibility .35s;display:flex;align-items:center;justify-content:center}
+#to-top.show{opacity:1;visibility:visible;transform:none}
+#to-top:hover{background:#fff;border-color:var(--accent);color:var(--accent)}
+@media(max-width:600px){#to-top{right:16px;bottom:74px;width:40px;height:40px;font-size:18px}}
+
+/* A. 長い導入文（.lead）の折りたたみ */
+.lead.collapsible .lead-clip{max-height:3.8em;overflow:hidden;
+  -webkit-mask-image:linear-gradient(180deg,#000 55%,transparent);
+  mask-image:linear-gradient(180deg,#000 55%,transparent);transition:max-height .45s ease}
+.lead.collapsible.open .lead-clip{max-height:1200px;-webkit-mask-image:none;mask-image:none}
+.lead-toggle{margin-top:10px;background:none;border:0;padding:0;cursor:pointer;
+  font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;color:var(--accent);font-weight:600}
+.lead-toggle:hover{text-decoration:underline}
+
+/* B+C. 自動アコーディオン（豆知識・持ち物・気候・レストラン詳細） */
+.auto-acc{margin:24px 0 14px;border-top:1px solid var(--border)}
+.auto-acc > summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;
+  font-family:var(--font-serif);font-size:22px;color:var(--primary);font-weight:700;
+  letter-spacing:-.005em;margin:0;padding:16px 0 12px;user-select:none}
+.auto-acc > summary::-webkit-details-marker{display:none}
+.auto-acc > summary::after{content:"▼";margin-left:auto;font-family:var(--font-mono);font-size:13px;
+  color:var(--accent);transition:transform .3s ease;flex:none}
+.auto-acc[open] > summary::after{transform:rotate(180deg)}
+.auto-acc > summary:hover{color:var(--accent)}
+.auto-acc[open] > .acc-body{animation:accSlide .35s ease}
+@keyframes accSlide{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+
+/* 印刷時：折りたたみ・出現アニメをすべて展開して見えるように */
+@media print{
+  .js-reveal{opacity:1 !important;transform:none !important}
+  .auto-acc > .acc-body{display:block !important}
+  .lead.collapsible .lead-clip{max-height:none !important;-webkit-mask-image:none !important;mask-image:none !important}
+  #to-top,.cover-countdown{display:none !important}
+}
+
+/* prefers-reduced-motion：動きを好まないユーザーには全アニメを無効化（静的表示） */
+@media (prefers-reduced-motion: reduce){
+  .js-reveal{opacity:1 !important;transform:none !important;transition:none !important}
+  .js-reveal.tl-item::before{transform:scale(1) !important;transition:none !important}
+  .place-card img{transition:none !important}
+  .place-card:hover img,.place-card:focus-within img{transform:none !important;filter:none !important}
+  .lead.collapsible .lead-clip{transition:none !important}
+  .auto-acc[open] > .acc-body{animation:none !important}
+  .auto-acc > summary::after{transition:none !important}
+  #to-top{transition:none !important}
+  html{scroll-behavior:auto !important}
+}
+
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
@@ -522,7 +603,7 @@ ruby rt{font-size:0.55em;color:#888;font-weight:400;line-height:1}
   <div class="sb-head">
     <div class="brand">森下家<span class="acc"> / </span>2026</div>
     <div class="sub">USA World Cup Adventure<br>（アメリカW杯旅行）</div>
-    <span class="ver">VERSION 10.0</span>
+    <span class="ver">VERSION 11.0</span>
   </div>
   <nav class="sb-menu">
     <div class="sb-grp">
@@ -1557,7 +1638,7 @@ ruby rt{font-size:0.55em;color:#888;font-weight:400;line-height:1}
           <div class="row"><div class="lbl">ET換算</div><div class="val">16:00 EDT</div></div>
           <div class="row"><div class="lbl">日本時間</div><div class="val">6/15 (月) 05:00 JST</div></div>
           <div class="row"><div class="lbl">会場</div><div class="val">Dallas Stadium（AT&amp;T Stadium）</div></div>
-          <div class="row"><div class="lbl">収容</div><div class="val">80,000人</div></div>
+          <div class="row"><div class="lbl">収容</div><div class="val"><span class="countup" data-to="80000">80,000</span>人</div></div>
         </div>
       </div>
       <div>
@@ -2359,7 +2440,7 @@ ruby rt{font-size:0.55em;color:#888;font-weight:400;line-height:1}
     <div class="row"><div class="lbl">開門</div><div class="val">10:30 AM（ジャージgiveaway先着配布）</div></div>
     <div class="row"><div class="lbl">会場</div><div class="val">UNIQLO Field at Dodger Stadium</div></div>
     <div class="row"><div class="lbl">住所</div><div class="val">1000 Vin Scully Ave, Los Angeles, CA 90012 <a class="map-link" href="https://maps.google.com/?q=Dodger+Stadium+1000+Vin+Scully+Ave+Los+Angeles" target="_blank" rel="noopener">📍 Maps</a></div></div>
-    <div class="row"><div class="lbl">収容</div><div class="val">56,000人</div></div>
+    <div class="row"><div class="lbl">収容</div><div class="val"><span class="countup" data-to="56000">56,000</span>人</div></div>
   </div>
 </div>
 
@@ -3906,6 +3987,182 @@ document.addEventListener('DOMContentLoaded', function() {
   var obs = new MutationObserver(onShow);
   obs.observe(document.body, {attributes:true, subtree:true, attributeFilter:['class']});
   window.addEventListener('load', onShow);
+})();
+</script>
+
+<!-- ============ v11: 控えめで上品な演出（追加スクリプト） ============ -->
+<script>
+(function(){
+  function ready(fn){ if(document.readyState!=='loading'){ fn(); } else { document.addEventListener('DOMContentLoaded', fn); } }
+  ready(function(){
+    var reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    var content = document.querySelector('.content');
+
+    function fmt(n){ try { return Number(n).toLocaleString('en-US'); } catch(e){ return ''+n; } }
+
+    /* ---------- B+C. アコーディオン化（豆知識・持ち物・気候・レストラン詳細） ---------- */
+    function shouldFold(t){
+      t = (t||'').trim();
+      if (/チケット|Ticket|座席|Seat|マップ|タイムライン|Timeline|試合/.test(t)) return false; // 重要情報は折りたたまない
+      if (/豆知識・注意点/.test(t)) return true;
+      if (/持ち物チェック/.test(t)) return true;
+      if (/気候・服装/.test(t)) return true;
+      if (/Pappadeaux Seafood Kitchen 詳細/.test(t)) return true;
+      if (/Locanda Verde 詳細/.test(t)) return true;
+      return false;
+    }
+    Array.prototype.forEach.call(document.querySelectorAll('.page > h2'), function(h2){
+      if (!shouldFold(h2.textContent)) return;
+      var parent = h2.parentNode;
+      var moves = [], n = h2.nextElementSibling;
+      while (n && n.tagName !== 'H2'){ moves.push(n); n = n.nextElementSibling; }
+      var det = document.createElement('details'); det.className = 'auto-acc';
+      var sum = document.createElement('summary'); sum.innerHTML = h2.innerHTML;
+      var body = document.createElement('div'); body.className = 'acc-body';
+      det.appendChild(sum); det.appendChild(body);
+      parent.insertBefore(det, h2);
+      moves.forEach(function(m){ body.appendChild(m); });
+      parent.removeChild(h2);
+    });
+
+    /* ---------- A. 長い導入文（.lead）の折りたたみ ---------- */
+    function finalizeLead(lead){
+      if (!lead || !lead.hasAttribute('data-lead-pending')) return;
+      lead.removeAttribute('data-lead-pending');
+      var clip = lead.querySelector('.lead-clip');
+      if (!clip) return;
+      if (clip.scrollHeight - clip.clientHeight > 6){
+        var btn = document.createElement('button');
+        btn.type = 'button'; btn.className = 'lead-toggle'; btn.textContent = '続きを読む ▼';
+        btn.addEventListener('click', function(){
+          var open = lead.classList.toggle('open');
+          btn.textContent = open ? '閉じる ▲' : '続きを読む ▼';
+        });
+        lead.appendChild(btn);
+      } else {
+        lead.classList.remove('collapsible'); // 短い導入文はそのまま全表示
+      }
+    }
+    Array.prototype.forEach.call(document.querySelectorAll('.lead'), function(lead){
+      var clip = document.createElement('div'); clip.className = 'lead-clip';
+      while (lead.firstChild) clip.appendChild(lead.firstChild);
+      lead.appendChild(clip);
+      lead.classList.add('collapsible');
+      lead.setAttribute('data-lead-pending','1');
+    });
+
+    /* ---------- 3. 数字カウントアップ ---------- */
+    function animateCount(el){
+      if (el.getAttribute('data-cu-done')) return;
+      el.setAttribute('data-cu-done','1');
+      var to = parseInt(el.getAttribute('data-to'),10) || 0, dur = 1000, start = null;
+      function step(ts){
+        if (start === null) start = ts;
+        var p = Math.min((ts - start)/dur, 1), eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = fmt(Math.round(to * eased));
+        if (p < 1) requestAnimationFrame(step); else el.textContent = fmt(to);
+      }
+      requestAnimationFrame(step);
+    }
+
+    /* ---------- 1/3/A. IntersectionObserver（root は .content スクロール容器） ---------- */
+    var io = null;
+    if ('IntersectionObserver' in window){
+      io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (!e.isIntersecting) return;
+          var el = e.target;
+          if (el.classList.contains('countup')){ animateCount(el); io.unobserve(el); return; }
+          if (el.classList.contains('lead')){ finalizeLead(el); io.unobserve(el); return; }
+          el.classList.add('reveal-in'); io.unobserve(el);
+        });
+      }, { root: content || null, threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    }
+
+    // lead を observe（表示されたページで計測）
+    Array.prototype.forEach.call(document.querySelectorAll('.lead[data-lead-pending]'), function(l){
+      if (io) io.observe(l); else finalizeLead(l);
+    });
+
+    // countup を observe（reduce 時は即確定）
+    Array.prototype.forEach.call(document.querySelectorAll('.countup'), function(el){
+      if (reduce || !io){ el.textContent = fmt(parseInt(el.getAttribute('data-to'),10) || 0); el.setAttribute('data-cu-done','1'); }
+      else { el.setAttribute('data-cu-pending','1'); io.observe(el); }
+    });
+
+    // 1. スクロール出現アニメ（reduce 時は付与しない＝静的表示）
+    if (!reduce && io){
+      Array.prototype.forEach.call(document.querySelectorAll('.page'), function(page){
+        var nodes = Array.prototype.filter.call(
+          page.querySelectorAll('h2,.place-card,.card,table,.callout,.tl-item,.auto-acc'),
+          function(el){
+            if (el.classList.contains('auto-acc')) return true;
+            if (el.closest('.auto-acc')) return false; // アコーディオン内部の要素は二重化しない
+            return true;
+          });
+        var counters = [];
+        function delayFor(parent){
+          for (var i=0;i<counters.length;i++){ if (counters[i].p === parent){ counters[i].c++; return Math.min(counters[i].c,6)*60; } }
+          counters.push({p:parent,c:0}); return 0;
+        }
+        nodes.forEach(function(el){
+          el.classList.add('js-reveal');
+          el.style.transitionDelay = delayFor(el.parentNode) + 'ms';
+          io.observe(el);
+        });
+      });
+    }
+
+    /* ---------- ページ切替時に確実に発火させる安全網（ページ送りUI対応） ---------- */
+    if (io){
+      var pageMo = new MutationObserver(function(muts){
+        muts.forEach(function(m){
+          var pg = m.target;
+          if (!pg.classList || !pg.classList.contains('active')) return;
+          requestAnimationFrame(function(){
+            var cr = content ? content.getBoundingClientRect() : {top:0, bottom:(window.innerHeight||0)};
+            function inView(el){ var r = el.getBoundingClientRect(); return r.top < cr.bottom && r.bottom > cr.top; }
+            Array.prototype.forEach.call(pg.querySelectorAll('.js-reveal:not(.reveal-in)'), function(el){ if (inView(el)){ el.classList.add('reveal-in'); io.unobserve(el); } });
+            Array.prototype.forEach.call(pg.querySelectorAll('.lead[data-lead-pending]'), function(el){ if (inView(el)){ finalizeLead(el); io.unobserve(el); } });
+            Array.prototype.forEach.call(pg.querySelectorAll('.countup[data-cu-pending]'), function(el){ if (inView(el)){ animateCount(el); io.unobserve(el); el.removeAttribute('data-cu-pending'); } });
+          });
+        });
+      });
+      Array.prototype.forEach.call(document.querySelectorAll('.page'), function(p){ pageMo.observe(p, {attributes:true, attributeFilter:['class']}); });
+    }
+
+    /* ---------- 2. 表紙カウントダウン（出発 2026-06-11） ---------- */
+    (function(){
+      var inner = document.querySelector('#cover .cover-inner');
+      if (!inner) return;
+      var now = new Date();
+      var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      var dep = new Date(2026, 5, 11), ret = new Date(2026, 5, 20);
+      var days = Math.round((dep - today) / 86400000);
+      var box = document.createElement('div'); box.className = 'cover-countdown';
+      if (days > 0){
+        box.innerHTML = '<span class="cd-label">✈️ 出発まで</span><span class="cd-num">' + days + '</span><span class="cd-unit">日</span>';
+      } else if (today <= ret){
+        box.innerHTML = '<span class="cd-label">🎉 旅行中！素敵な思い出を</span>';
+      } else {
+        box.innerHTML = '<span class="cd-label">🎉 おかえりなさい</span>';
+      }
+      inner.appendChild(box);
+    })();
+
+    /* ---------- 7. ページ最上部へ戻るボタン（.content をスクロール） ---------- */
+    (function(){
+      var btn = document.createElement('button');
+      btn.id = 'to-top'; btn.type = 'button'; btn.setAttribute('aria-label','上へ戻る'); btn.textContent = '↑';
+      document.body.appendChild(btn);
+      var scroller = content || window;
+      function getTop(){ return content ? content.scrollTop : (window.pageYOffset || 0); }
+      function onScroll(){ if (getTop() > 300) btn.classList.add('show'); else btn.classList.remove('show'); }
+      scroller.addEventListener('scroll', onScroll, {passive:true});
+      btn.addEventListener('click', function(){ scroller.scrollTo({ top:0, behavior: reduce ? 'auto' : 'smooth' }); });
+      onScroll();
+    })();
+  });
 })();
 </script>
 </body>
