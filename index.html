@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
 <meta name="theme-color" content="#0f2c5e">
-<title>森下家 2026アメリカ大冒険 / 旅のしおり v11</title>
+<title>森下家 2026アメリカ大冒険 / 旅のしおり v12</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
@@ -587,6 +587,122 @@ ruby rt{font-size:0.55em;color:#888;font-weight:400;line-height:1}
   html{scroll-behavior:auto !important}
 }
 
+/* ============================================================
+   v12 — 旅行雑誌風リニューアル（Condé Nast / NatGeo Travel 風）
+   華やかさは「彩度の高いテーマ色をアクセント運用」＋大判写真＋
+   余白とエディトリアルなタイポで品位を担保（追加のみ・既存は上書き拡張）
+   ============================================================ */
+
+/* --- 5. デイ別テーマカラー（JSが付与。アクセント運用に限定） --- */
+.theme-nyc      {--theme:#2f5da8;--theme-2:#e6c068;--theme-scrim:rgba(18,38,74,.78)}
+.theme-dallas   {--theme:#e0552b;--theme-2:#f4a93c;--theme-scrim:rgba(120,32,16,.74)}
+.theme-wc       {--theme:#bc002d;--theme-2:#ffffff;--theme-scrim:rgba(120,8,28,.74)}
+.theme-disney   {--theme:#8e5bc0;--theme-2:#ec7bb0;--theme-scrim:rgba(58,28,92,.76)}
+.theme-dodgers  {--theme:#1d6fb8;--theme-2:#ffffff;--theme-scrim:rgba(12,52,98,.78)}
+.theme-hollywood{--theme:#e0903a;--theme-2:#ec7bb0;--theme-scrim:rgba(120,60,20,.72)}
+
+/* --- 1+2. 全幅ヒーロー（雑誌の扉ページ）＋特大タイポ --- */
+.page-hero:not(.compact){height:min(66vh,560px);min-height:340px;align-items:flex-end}
+.page-hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(0deg, var(--theme-scrim, rgba(15,44,94,.62)) 0%, transparent 58%)}
+.page-hero-inner{position:relative;z-index:2;max-width:860px}
+.page-hero-kicker{display:inline-flex;align-items:center;gap:11px;font-size:12px;letter-spacing:.32em;
+  color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.5);margin-bottom:14px}
+.page-hero-kicker::before{content:"";width:30px;height:2px;background:var(--theme-2,var(--gold));flex:none}
+.page-hero-title{font-family:'Cormorant Garamond',var(--font-serif);
+  font-size:clamp(38px,6.4vw,72px);font-weight:700;line-height:1.02;letter-spacing:-.01em;
+  margin:0 0 4px;text-shadow:0 3px 26px rgba(0,0,0,.45)}
+.page-hero-title::after{content:"";display:block;width:72px;height:4px;border-radius:3px;
+  background:var(--theme,var(--accent));margin-top:18px;box-shadow:0 2px 12px rgba(0,0,0,.3)}
+.page-hero-sub{font-family:var(--font-mono);font-size:12.5px;font-weight:500;letter-spacing:.16em;
+  text-transform:uppercase;color:rgba(255,255,255,.95);margin-top:16px;text-shadow:0 2px 10px rgba(0,0,0,.5)}
+@media(max-width:600px){
+  .page-hero:not(.compact){height:min(56vh,460px);min-height:300px}
+  .page-hero-title{font-size:clamp(30px,9vw,42px)}
+  .page-hero-sub{font-size:11px;letter-spacing:.12em}
+}
+
+/* --- 7. 見出しの雑誌的トリートメント＋セクション区切り --- */
+h2{font-size:clamp(22px,3vw,30px);margin:46px 0 18px;position:relative;padding-top:20px;letter-spacing:-.01em}
+h2::before{content:"";position:absolute;top:0;left:0;width:46px;height:3px;border-radius:2px;
+  background:var(--theme,var(--accent))}
+.day-map > h2{padding-top:0}
+.day-map > h2::before{display:none}
+.auto-acc > summary{position:relative;padding-top:20px}
+.auto-acc > summary::before{content:"";position:absolute;top:0;left:0;width:46px;height:3px;border-radius:2px;background:var(--theme,var(--accent))}
+
+/* --- 7. リード文に大きな引用符装飾 --- */
+.lead{position:relative;font-size:clamp(16px,2.1vw,19px);border-left-width:4px;
+  border-left-color:var(--theme,var(--accent));overflow:visible}
+.lead::before{content:"\201C";position:absolute;top:-18px;left:8px;z-index:0;
+  font-family:'Cormorant Garamond',serif;font-weight:700;font-size:92px;line-height:1;
+  color:var(--theme,var(--accent));opacity:.16;pointer-events:none}
+.lead .lead-clip{position:relative;z-index:1}
+
+/* --- 3. 大判フォトギャラリー（オーバーレイ・キャプション） --- */
+.place-gallery{grid-template-columns:repeat(auto-fit,minmax(min(100%,272px),1fr));gap:18px;margin:22px 0 32px}
+.place-card{position:relative;aspect-ratio:4/3;display:block;border:0;border-radius:16px;
+  overflow:hidden;box-shadow:var(--shadow);background:#0a101e;transition:transform .35s ease,box-shadow .35s ease}
+.place-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.place-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;aspect-ratio:auto;border-radius:0}
+.place-card figcaption{position:absolute;left:0;right:0;bottom:0;z-index:2;
+  padding:46px 16px 15px;gap:3px;color:#fff;
+  background:linear-gradient(to top,rgba(8,14,28,.95) 0%,rgba(8,14,28,.6) 42%,rgba(8,14,28,0) 100%);
+  transition:padding-bottom .35s ease}
+.place-card figcaption strong{color:#fff;font-family:'Cormorant Garamond',var(--font-serif);
+  font-size:18px;font-weight:700;line-height:1.2;text-shadow:0 2px 10px rgba(0,0,0,.5)}
+.place-card figcaption span.jp{color:rgba(255,255,255,.92);font-size:12px;line-height:1.5;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.place-card figcaption span.tag{align-self:flex-start;margin-top:8px;background:var(--theme,var(--accent));
+  color:#fff;border:0;padding:4px 11px;font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.place-card:hover figcaption{padding-bottom:22px}
+.place-card:hover img,.place-card:focus-within img{transform:scale(1.08);filter:brightness(1.06)}
+@media(max-width:600px){
+  .place-gallery{grid-template-columns:1fr 1fr;gap:12px}
+  .place-card figcaption{padding:34px 11px 12px}
+  .place-card figcaption strong{font-size:14px}
+  .place-card figcaption span.jp{font-size:10.5px;-webkit-line-clamp:2}
+  .place-card figcaption span.tag{font-size:9px;padding:3px 8px}
+}
+
+/* --- 4. 表紙カウントダウンを主役に（巨大・夕日グラデ） --- */
+.cover-countdown{margin-top:34px;display:flex;flex-direction:column;align-items:flex-start;gap:4px;
+  padding:0;border:0;background:none;backdrop-filter:none;border-radius:0}
+.cover-countdown .cd-top{font-family:var(--font-mono);font-size:12px;font-weight:600;
+  letter-spacing:.34em;text-transform:uppercase;color:#ffd97f}
+.cover-countdown .cd-num{font-family:'Cormorant Garamond',var(--font-serif);font-weight:700;
+  font-size:clamp(76px,15vw,128px);line-height:.86;letter-spacing:-.02em;
+  background:linear-gradient(125deg,#ffe7a3 0%,#ff9d5c 46%,#ff6f8e 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 8px 30px rgba(0,0,0,.4))}
+.cover-countdown .cd-unit{font-family:var(--font-mono);font-size:12px;font-weight:500;
+  letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.9)}
+.cover-countdown.is-msg .cd-top{font-family:'Cormorant Garamond',serif;font-size:30px;letter-spacing:.02em;text-transform:none;color:#fff}
+
+/* --- 6. 数字インフォグラフィック（収容人数などを大きく） --- */
+.countup{font-family:'Cormorant Garamond',var(--font-serif);font-weight:700;font-size:1.45em;
+  color:var(--theme,var(--accent));letter-spacing:.01em;font-variant-numeric:tabular-nums}
+/* 既存のスタットカード（.stat）を磨く */
+.stat{border-top:3px solid var(--theme,var(--accent))}
+.stat .v{font-family:'Cormorant Garamond',var(--font-serif);font-size:24px}
+
+/* --- 表紙メタを上品なスタット列に --- */
+.cover-meta .val{font-size:22px}
+.cover-meta .lbl{color:var(--theme-2,#ffd97f)}
+
+/* --- フードカード・カードの仕上げ（角丸・ホバー） --- */
+.food-card{border-radius:14px;transition:transform .3s ease,box-shadow .3s ease}
+.food-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.card{border-radius:14px}
+
+/* --- v12 追加モーションの reduced-motion 無効化 --- */
+@media (prefers-reduced-motion: reduce){
+  .place-card,.place-card img,.place-card figcaption,.food-card{transition:none !important}
+  .place-card:hover{transform:none !important}
+  .place-card:hover img,.place-card:focus-within img{transform:none !important;filter:none !important}
+  .food-card:hover{transform:none !important}
+}
+
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
@@ -603,7 +719,7 @@ ruby rt{font-size:0.55em;color:#888;font-weight:400;line-height:1}
   <div class="sb-head">
     <div class="brand">森下家<span class="acc"> / </span>2026</div>
     <div class="sub">USA World Cup Adventure<br>（アメリカW杯旅行）</div>
-    <span class="ver">VERSION 11.0</span>
+    <span class="ver">VERSION 12.0</span>
   </div>
   <nav class="sb-menu">
     <div class="sb-grp">
@@ -1118,7 +1234,7 @@ ruby rt{font-size:0.55em;color:#888;font-weight:400;line-height:1}
 
 <!-- ============ 05. DAY 6/12 ============ -->
 <section id="d12" class="page">
-  <div class="page-hero" style="background-image:linear-gradient(0deg,rgba(15,44,94,.35) 0%,rgba(15,44,94,.05) 55%,rgba(15,44,94,.5) 100%),url('images/dumbo-manhattan.jpg')">
+  <div class="page-hero" style="background-image:linear-gradient(0deg,rgba(15,44,94,.35) 0%,rgba(15,44,94,.05) 55%,rgba(15,44,94,.5) 100%),url('images/statue-of-liberty.jpg')">
     <div class="page-hero-inner">
       <div class="page-hero-kicker">DAY 02 · 6/12 FRI · 2日目</div>
       <h1 class="page-hero-title">De Niro DAY · 映画愛が炸裂する一日</h1>
@@ -1832,7 +1948,7 @@ ruby rt{font-size:0.55em;color:#888;font-weight:400;line-height:1}
 
 <!-- ============ 08. DAY 6/15 ============ -->
 <section id="d15" class="page">
-<div class="page-hero" style="background-image:linear-gradient(0deg,rgba(15,44,94,.35) 0%,rgba(15,44,94,.05) 55%,rgba(15,44,94,.5) 100%),url('images/disneyland-castle.jpg')">
+<div class="page-hero" style="background-image:linear-gradient(0deg,rgba(15,44,94,.35) 0%,rgba(15,44,94,.05) 55%,rgba(15,44,94,.5) 100%),url('images/dca-entrance.jpg')">
   <div class="page-hero-inner">
     <div class="page-hero-kicker">DAY 05 · 6/15 MON · 5日目</div>
     <h1 class="page-hero-title">🎡 カリフォルニア・アドベンチャー（初日）</h1>
@@ -2611,7 +2727,7 @@ ruby rt{font-size:0.55em;color:#888;font-weight:400;line-height:1}
 
 <!-- ============ 11. DAY 6/18 Range Rover ============ -->
 <section id="d18" class="page">
-  <div class="page-hero" style="background-image:linear-gradient(0deg,rgba(15,44,94,.35) 0%,rgba(15,44,94,.05) 55%,rgba(15,44,94,.5) 100%),url('images/range-rover.jpg')">
+  <div class="page-hero" style="background-image:linear-gradient(0deg,rgba(15,44,94,.35) 0%,rgba(15,44,94,.05) 55%,rgba(15,44,94,.5) 100%),url('images/hollywood-sign.jpg')">
     <div class="page-hero-inner">
       <div class="page-hero-kicker">DAY 08 · 6/18 THU · 8日目</div>
       <h1 class="page-hero-title">🚗 Range Rover DAY · ハリウッドを駆け抜ける</h1>
@@ -4000,6 +4116,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function fmt(n){ try { return Number(n).toLocaleString('en-US'); } catch(e){ return ''+n; } }
 
+    /* ---------- v12-5. デイ別テーマカラーを付与（既存構造は変更しない） ---------- */
+    var THEMES = { d10:'theme-nyc', d11:'theme-nyc', d12:'theme-nyc', d13:'theme-dallas', d14:'theme-wc', d15:'theme-disney', d16:'theme-disney', d17:'theme-dodgers', d18:'theme-hollywood' };
+    Object.keys(THEMES).forEach(function(id){ var s = document.getElementById(id); if (s) s.classList.add(THEMES[id]); });
+
     /* ---------- B+C. アコーディオン化（豆知識・持ち物・気候・レストラン詳細） ---------- */
     function shouldFold(t){
       t = (t||'').trim();
@@ -4131,7 +4251,7 @@ document.addEventListener('DOMContentLoaded', function() {
       Array.prototype.forEach.call(document.querySelectorAll('.page'), function(p){ pageMo.observe(p, {attributes:true, attributeFilter:['class']}); });
     }
 
-    /* ---------- 2. 表紙カウントダウン（出発 2026-06-11） ---------- */
+    /* ---------- 2+4. 表紙カウントダウン（巨大・夕日グラデ・カウントアップ） ---------- */
     (function(){
       var inner = document.querySelector('#cover .cover-inner');
       if (!inner) return;
@@ -4141,13 +4261,28 @@ document.addEventListener('DOMContentLoaded', function() {
       var days = Math.round((dep - today) / 86400000);
       var box = document.createElement('div'); box.className = 'cover-countdown';
       if (days > 0){
-        box.innerHTML = '<span class="cd-label">✈️ 出発まで</span><span class="cd-num">' + days + '</span><span class="cd-unit">日</span>';
+        box.innerHTML = '<span class="cd-top">✈️ Days to go</span><span class="cd-num">0</span><span class="cd-unit">出発まで · June 11, 2026</span>';
+        inner.appendChild(box);
+        var numEl = box.querySelector('.cd-num');
+        if (reduce){ numEl.textContent = days; }
+        else {
+          var dur = 1100, start = null;
+          requestAnimationFrame(function step(ts){
+            if (start === null) start = ts;
+            var p = Math.min((ts - start) / dur, 1), eased = 1 - Math.pow(1 - p, 3);
+            numEl.textContent = Math.round(days * eased);
+            if (p < 1) requestAnimationFrame(step); else numEl.textContent = days;
+          });
+        }
       } else if (today <= ret){
-        box.innerHTML = '<span class="cd-label">🎉 旅行中！素敵な思い出を</span>';
+        box.className = 'cover-countdown is-msg';
+        box.innerHTML = '<span class="cd-top">🎉 旅行中 — 素敵な思い出を</span>';
+        inner.appendChild(box);
       } else {
-        box.innerHTML = '<span class="cd-label">🎉 おかえりなさい</span>';
+        box.className = 'cover-countdown is-msg';
+        box.innerHTML = '<span class="cd-top">🎉 おかえりなさい</span>';
+        inner.appendChild(box);
       }
-      inner.appendChild(box);
     })();
 
     /* ---------- 7. ページ最上部へ戻るボタン（.content をスクロール） ---------- */
