@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
 <meta name="theme-color" content="#0f2c5e">
-<title>森下家 2026アメリカ大冒険 / 旅のしおり v15</title>
+<title>森下家 2026アメリカ大冒険 / 旅のしおり v16</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
@@ -750,6 +750,100 @@ h2::before{content:"";position:absolute;top:0;left:0;width:46px;height:3px;borde
   .pc-item:hover img,.pc-item:focus-within img{transform:none !important;filter:none !important}
 }
 
+/* ============================================================
+   v16 — こども ページ（7・8歳向け・大きく丸く楽しく）
+   ============================================================ */
+.sb-item.sb-kids{font-weight:700;color:var(--primary);background:linear-gradient(90deg,#fff3d6,#ffe7f0);
+  border-left-color:#f6a821;border-radius:0 12px 12px 0;margin:2px 8px 8px 0}
+.sb-item.sb-kids .n{font-size:15px;min-width:34px}
+.sb-item.sb-kids:hover{background:linear-gradient(90deg,#ffe7a8,#ffd6e8)}
+.sb-item.sb-kids.active{background:linear-gradient(90deg,#ffe08a,#ffc6df)}
+
+#kids{background:radial-gradient(1200px 500px at 50% -120px,#eaf4ff 0%,transparent 60%),
+  linear-gradient(180deg,#fffdf8 0%,#fdf4ff 100%)}
+.kids-top{text-align:center;padding:8px 0 6px}
+.kids-top-emoji{font-size:54px;line-height:1}
+.kids-title{font-family:'Cormorant Garamond',var(--font-serif);font-size:clamp(36px,8vw,58px);
+  font-weight:700;color:#1d6fb8;margin:6px 0 4px;letter-spacing:.01em}
+.kids-sub{font-size:15px;color:#7a6a8a;font-weight:600;margin:0}
+
+/* カウントダウン（旅行前） */
+.kids-countdown{margin:18px auto 8px;max-width:560px;text-align:center;
+  background:linear-gradient(135deg,#fff5d6 0%,#ffe1ee 55%,#e6f0ff 100%);
+  border:3px solid #fff;border-radius:28px;padding:26px 18px;box-shadow:0 12px 36px rgba(29,111,184,.16)}
+.kids-countdown .kc-label{font-size:17px;font-weight:700;color:#e0552b;letter-spacing:.02em}
+.kids-countdown .kc-num{font-family:'Cormorant Garamond',var(--font-serif);font-weight:700;
+  font-size:clamp(96px,28vw,180px);line-height:.9;
+  background:linear-gradient(125deg,#ff9d2e,#ff5a8a 55%,#9b5cff);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 6px 18px rgba(255,90,138,.25))}
+.kids-countdown .kc-unit{display:block;font-size:20px;font-weight:800;color:#1d6fb8;margin-top:-4px}
+.kids-countdown .kc-beds{font-size:26px;line-height:1.5;margin:12px 0 6px;word-break:break-word}
+.kids-countdown .kc-go{font-size:18px;font-weight:700;color:#5a4a6a}
+.kids-countdown .kc-go strong{color:#e0552b;font-size:1.3em}
+
+/* きょう／あした フィーチャー */
+.kids-feature-wrap{margin:14px 0}
+.kids-badge{display:inline-block;font-size:20px;font-weight:800;color:#fff;padding:6px 22px;border-radius:999px;
+  box-shadow:0 4px 12px rgba(0,0,0,.12);margin:0 0 -16px 14px;position:relative;z-index:3}
+.kids-badge.today{background:linear-gradient(135deg,#ff8a3d,#ff5a8a)}
+.kids-badge.tomorrow{background:linear-gradient(135deg,#2f9bd6,#8e5bc0)}
+.kids-feature .kids-day{box-shadow:0 14px 40px rgba(29,111,184,.18)}
+
+/* おしまい（旅行後） */
+.kids-after{text-align:center;background:linear-gradient(135deg,#fff5d6,#ffe1ee 60%,#e6f0ff);
+  border-radius:28px;padding:30px 18px;margin:16px 0;border:3px solid #fff;box-shadow:0 12px 36px rgba(29,111,184,.16)}
+.kids-after .ka-emoji{font-size:60px}
+.kids-after h2{font-size:clamp(24px,6vw,34px);color:#e0552b;border:0;padding:0;margin:6px 0 4px}
+.kids-after h2::before{display:none}
+
+.kids-h2{font-size:clamp(22px,5vw,28px);color:#1d6fb8;text-align:center;margin:26px 0 14px;padding-top:0}
+.kids-h2::before{display:none}
+
+/* ハイライト（よこ4枚 → スマホ2枚） */
+.kids-highlights{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:8px 0 4px}
+.kids-hl{position:relative;aspect-ratio:1/1;border-radius:20px;overflow:hidden;border:3px solid #fff;
+  box-shadow:0 8px 22px rgba(29,111,184,.16);background:#0a101e}
+.kids-hl img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.kids-hl:hover img,.kids-hl:focus-within img{transform:scale(1.08)}
+.kids-hl .hl-cap{position:absolute;left:0;right:0;bottom:0;padding:22px 8px 8px;color:#fff;font-weight:800;
+  font-size:13px;text-align:center;text-shadow:0 1px 6px rgba(0,0,0,.6);
+  background:linear-gradient(to top,rgba(8,14,28,.9),transparent)}
+.kids-hl .hl-emoji{position:absolute;top:6px;left:0;right:0;text-align:center;font-size:30px;
+  filter:drop-shadow(0 2px 6px rgba(0,0,0,.4))}
+
+/* ぜんぶの ひ（カードグリッド） */
+.kids-days{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:10px 0 18px}
+.kids-day{background:#fff;border:3px solid var(--kc,#1d6fb8);border-radius:24px;overflow:hidden;
+  box-shadow:0 10px 28px rgba(29,111,184,.12);display:flex;flex-direction:column;
+  transition:transform .3s ease,box-shadow .3s ease}
+.kids-day:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(29,111,184,.2)}
+.kids-day-img{position:relative;aspect-ratio:16/10;overflow:hidden;background:#eaf0f6}
+.kids-day-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.kids-day:hover .kids-day-img img,.kids-day:focus-within .kids-day-img img{transform:scale(1.06)}
+.kids-day-emoji{position:absolute;font-size:38px;line-height:1;left:14px;top:-26px;
+  filter:drop-shadow(0 3px 6px rgba(0,0,0,.3))}
+.kids-day-body{padding:20px 16px 16px;position:relative}
+.kids-day-date{display:inline-block;font-size:13px;font-weight:800;color:#fff;background:var(--kc,#1d6fb8);
+  padding:3px 12px;border-radius:999px;margin-bottom:6px}
+.kids-day-body h3{font-family:var(--font-sans);font-size:20px;font-weight:800;color:#2a2a2a;margin:2px 0 10px;line-height:1.3}
+.kids-points{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:7px}
+.kids-points li{font-size:15px;font-weight:600;color:#4a4a5a;background:#f6f8fc;border-radius:12px;padding:8px 12px;line-height:1.4}
+.kids-day ruby rt{color:#888;font-size:.5em}
+
+@media(max-width:600px){
+  .kids-highlights{grid-template-columns:repeat(2,1fr);gap:10px}
+  .kids-days{grid-template-columns:1fr;gap:16px}
+  .kids-day-body h3{font-size:19px}
+  .kids-points li{font-size:15px}
+  .kids-countdown{padding:22px 14px}
+}
+@media (prefers-reduced-motion: reduce){
+  .kids-day,.kids-day-img img,.kids-hl img{transition:none !important}
+  .kids-day:hover{transform:none !important}
+  .kids-day:hover .kids-day-img img,.kids-hl:hover img{transform:none !important}
+}
+
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
@@ -766,9 +860,12 @@ h2::before{content:"";position:absolute;top:0;left:0;width:46px;height:3px;borde
   <div class="sb-head">
     <div class="brand">森下家<span class="acc"> / </span>2026</div>
     <div class="sub">USA World Cup Adventure<br>（アメリカW杯旅行）</div>
-    <span class="ver">VERSION 15.0</span>
+    <span class="ver">VERSION 16.0</span>
   </div>
   <nav class="sb-menu">
+    <div class="sb-grp">
+      <a class="sb-item sb-kids" href="#kids" data-target="kids"><span class="n">👧👦</span>こども ページ</a>
+    </div>
     <div class="sb-grp">
       <div class="sb-grp-ttl">Overview（全体）</div>
       <a class="sb-item" href="#cover" data-target="cover"><span class="n">01</span>表紙</a>
@@ -3266,6 +3363,120 @@ h2::before{content:"";position:absolute;top:0;left:0;width:46px;height:3px;borde
   </div>
 </section>
 
+<!-- ============ KIDS（こども ページ） ============ -->
+<section id="kids" class="page kids">
+  <div class="kids-top">
+    <div class="kids-top-emoji">👧👦</div>
+    <h1 class="kids-title">きょう・あした</h1>
+    <p class="kids-sub">もりした family の アメリカ だいぼうけん</p>
+  </div>
+
+  <div id="kids-hero" aria-live="polite"></div>
+
+  <h2 class="kids-h2">🗓️ ぜんぶの ひ</h2>
+  <div class="kids-days">
+    <article class="kids-day" data-date="2026-06-10" style="--kc:#f6a821">
+      <div class="kids-day-img"><img src="images/airplane.jpg" alt="ひこうき" loading="lazy"></div>
+      <div class="kids-day-body">
+        <div class="kids-day-emoji">✈️</div>
+        <div class="kids-day-date">6/10（すい）</div>
+        <h3>あした しゅっぱつ！</h3>
+        <ul class="kids-points"><li>🧳 にもつの じゅんび</li><li>🛌 はやね して いっぱい ねよう</li><li>🌅 あしたから アメリカ！</li></ul>
+      </div>
+    </article>
+    <article class="kids-day" data-date="2026-06-11" style="--kc:#2f9bd6">
+      <div class="kids-day-img"><img src="images/times-square.jpg" alt="ニューヨーク" loading="lazy"></div>
+      <div class="kids-day-body">
+        <div class="kids-day-emoji">🗽</div>
+        <div class="kids-day-date">6/11（もく）</div>
+        <h3>ニューヨーク とうちゃく！</h3>
+        <ul class="kids-points"><li>✈️ ながい ひこうきの たび</li><li>🌃 おおきな まち ニューヨーク</li><li>🍕 アメリカの ごはん</li></ul>
+      </div>
+    </article>
+    <article class="kids-day" data-date="2026-06-12" style="--kc:#3aa8a0">
+      <div class="kids-day-img"><img src="images/statue-of-liberty.jpg" alt="じゆうの女神" loading="lazy"></div>
+      <div class="kids-day-body">
+        <div class="kids-day-emoji">🗽</div>
+        <div class="kids-day-date">6/12（きん）</div>
+        <h3>じゆうの<ruby>女神<rt>めがみ</rt></ruby></h3>
+        <ul class="kids-points"><li>🚢 ふねで しまへ</li><li>👑 きんかんむりに のぼるよ</li><li>📷 きねん しゃしん</li></ul>
+      </div>
+    </article>
+    <article class="kids-day" data-date="2026-06-13" style="--kc:#e0552b">
+      <div class="kids-day-img"><img src="images/six-flags-over-texas.jpg" alt="ジェットコースター" loading="lazy"></div>
+      <div class="kids-day-body">
+        <div class="kids-day-emoji">🎢</div>
+        <div class="kids-day-date">6/13（ど）</div>
+        <h3>ジェットコースター！</h3>
+        <ul class="kids-points"><li>🎢 すごい コースター</li><li>🌊 みずあそび パーク</li><li>🍤 おいしい ゆうごはん</li></ul>
+      </div>
+    </article>
+    <article class="kids-day" data-date="2026-06-14" style="--kc:#d11f3a">
+      <div class="kids-day-img"><img src="images/at-t-stadium.jpg" alt="サッカー" loading="lazy"></div>
+      <div class="kids-day-body">
+        <div class="kids-day-emoji">⚽</div>
+        <div class="kids-day-date">6/14（にち）</div>
+        <h3>サッカー にっぽん だいひょう！</h3>
+        <ul class="kids-points"><li>🇯🇵 にっぽんを おうえん</li><li>🇳🇱 オランダと たいせん</li><li>📣 みんなで ユニフォーム</li></ul>
+      </div>
+    </article>
+    <article class="kids-day" data-date="2026-06-15" style="--kc:#8e5bc0">
+      <div class="kids-day-img"><img src="images/dca-entrance.jpg" alt="ディズニー" loading="lazy"></div>
+      <div class="kids-day-body">
+        <div class="kids-day-emoji">🎢</div>
+        <div class="kids-day-date">6/15（げつ）</div>
+        <h3>ディズニー カリフォルニア アドベンチャー</h3>
+        <ul class="kids-points"><li>🎢 のりもの いっぱい</li><li>🚗 カーズの まち</li><li>🎆 よるは ショー</li></ul>
+      </div>
+    </article>
+    <article class="kids-day" data-date="2026-06-16" style="--kc:#e3679f">
+      <div class="kids-day-img"><img src="images/disneyland-castle.jpg" alt="ディズニーランド" loading="lazy"></div>
+      <div class="kids-day-body">
+        <div class="kids-day-emoji">🏰</div>
+        <div class="kids-day-date">6/16（か）</div>
+        <h3>ディズニーランド！</h3>
+        <ul class="kids-points"><li>🐭 ミッキーに あえるかな</li><li>🏰 おしろが おおきい</li><li>🎇 よるは はなび</li></ul>
+      </div>
+    </article>
+    <article class="kids-day" data-date="2026-06-17" style="--kc:#1d6fb8">
+      <div class="kids-day-img"><img src="images/dodger-stadium.jpg" alt="ドジャース" loading="lazy"></div>
+      <div class="kids-day-body">
+        <div class="kids-day-emoji">⚾</div>
+        <div class="kids-day-date">6/17（すい）</div>
+        <h3>ドジャース やきゅう！</h3>
+        <ul class="kids-points"><li>⚾ おおたに せんしゅ</li><li>🌭 ホットドッグ</li><li>🟦 あおい ユニフォーム</li></ul>
+      </div>
+    </article>
+    <article class="kids-day" data-date="2026-06-18" style="--kc:#e0903a">
+      <div class="kids-day-img"><img src="images/hollywood-sign.jpg" alt="ハリウッド" loading="lazy"></div>
+      <div class="kids-day-body">
+        <div class="kids-day-emoji">🎬</div>
+        <div class="kids-day-date">6/18（もく）</div>
+        <h3>ハリウッド！</h3>
+        <ul class="kids-points"><li>🎬 えいがの まち</li><li>🔠 おおきな かんばん</li><li>⛰️ たかい ところ から ながめる</li></ul>
+      </div>
+    </article>
+    <article class="kids-day" data-date="2026-06-19" style="--kc:#2f9bd6">
+      <div class="kids-day-img"><img src="images/airplane.jpg" alt="ひこうき" loading="lazy"></div>
+      <div class="kids-day-body">
+        <div class="kids-day-emoji">✈️</div>
+        <div class="kids-day-date">6/19（きん）</div>
+        <h3>にほんに かえるよ</h3>
+        <ul class="kids-points"><li>✈️ ながい そらの たび</li><li>😴 きないで ねむる</li><li>🇯🇵 もうすぐ にほん</li></ul>
+      </div>
+    </article>
+    <article class="kids-day" data-date="2026-06-20" style="--kc:#f6a821">
+      <div class="kids-day-img"><img src="images/marina-sunset.jpg" alt="おうち" loading="lazy"></div>
+      <div class="kids-day-body">
+        <div class="kids-day-emoji">🏠</div>
+        <div class="kids-day-date">6/20（ど）</div>
+        <h3>おうちに とうちゃく！</h3>
+        <ul class="kids-points"><li>🏠 ただいま！</li><li>🛁 おふろで ゆっくり</li><li>💤 たのしかった ね</li></ul>
+      </div>
+    </article>
+  </div>
+</section>
+
 <!-- ============ 13. BUDGET（費用総額） ============ -->
 <section id="budget" class="page">
   <div class="page-hero compact">
@@ -4353,7 +4564,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!reduce && io){
       Array.prototype.forEach.call(document.querySelectorAll('.page'), function(page){
         var nodes = Array.prototype.filter.call(
-          page.querySelectorAll('h2,.place-card,.card,table,.callout,.tl-item,.auto-acc'),
+          page.querySelectorAll('h2,.place-card,.card,table,.callout,.tl-item,.auto-acc,.kids-day'),
           function(el){
             if (el.classList.contains('auto-acc')) return true;
             if (el.closest('.auto-acc')) return false; // アコーディオン内部の要素は二重化しない
@@ -4436,6 +4647,102 @@ document.addEventListener('DOMContentLoaded', function() {
       btn.addEventListener('click', function(){ scroller.scrollTo({ top:0, behavior: reduce ? 'auto' : 'smooth' }); });
       onScroll();
     })();
+  });
+})();
+</script>
+
+<!-- ============ v16: こども ページ（表示モード切替） ============ -->
+<script>
+(function(){
+  function ready(fn){ if(document.readyState!=='loading'){ fn(); } else { document.addEventListener('DOMContentLoaded', fn); } }
+  ready(function(){
+    var hero = document.getElementById('kids-hero');
+    if (!hero) return;
+    var reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+    function ymd(d){ return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0'); }
+    var now = new Date();
+    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var dep = new Date(2026, 5, 11);   // 6/11 出発（NY到着日）
+    var end = new Date(2026, 5, 20);   // 6/20 帰宅日
+    var nights = Math.round((dep - today) / 86400000);
+
+    function dayCard(dateStr){ return document.querySelector('.kids-day[data-date="' + dateStr + '"]'); }
+
+    function highlightsHTML(items){
+      return '<div class="kids-highlights">' + items.map(function(h){
+        return '<figure class="kids-hl"><span class="hl-emoji">' + h.e + '</span><img src="images/' + h.img + '" alt="' + h.cap + '" loading="lazy"><figcaption class="hl-cap">' + h.cap + '</figcaption></figure>';
+      }).join('') + '</div>';
+    }
+    var HL = [
+      {e:'🏰', img:'disneyland-castle.jpg', cap:'ディズニー'},
+      {e:'⚾', img:'shohei-ohtani.jpg', cap:'おおたに せんしゅ'},
+      {e:'🎢', img:'six-flags-over-texas.jpg', cap:'コースター'},
+      {e:'🗽', img:'statue-of-liberty.jpg', cap:'じゆうの女神'}
+    ];
+
+    function featureHTML(badgeText, badgeClass, cardEl){
+      var wrap = document.createElement('div');
+      wrap.className = 'kids-feature-wrap';
+      var badge = document.createElement('div');
+      badge.className = 'kids-badge ' + badgeClass;
+      badge.textContent = badgeText;
+      var feat = document.createElement('div');
+      feat.className = 'kids-feature';
+      feat.appendChild(cardEl.cloneNode(true));
+      wrap.appendChild(badge); wrap.appendChild(feat);
+      return wrap;
+    }
+
+    if (nights > 0){
+      // モード1：旅行前 — カウントダウン
+      var beds = new Array(Math.max(0, Math.min(nights, 40)) + 1).join('🛌');
+      hero.innerHTML =
+        '<div class="kids-countdown">' +
+          '<div class="kc-label">✈️ アメリカ りょこうまで</div>' +
+          '<div class="kc-num">0</div>' +
+          '<span class="kc-unit">かい ねたら！</span>' +
+          '<div class="kc-beds">' + beds + '</div>' +
+          '<div class="kc-go">あと <strong>' + nights + '</strong> かい ねたら しゅっぱつ！</div>' +
+        '</div>' +
+        '<h2 class="kids-h2">どんな たのしみが まってるかな？</h2>' +
+        highlightsHTML(HL);
+      var numEl = hero.querySelector('.kc-num');
+      if (reduce){ numEl.textContent = nights; }
+      else {
+        var dur = 1100, start = null;
+        requestAnimationFrame(function step(ts){
+          if (start === null) start = ts;
+          var p = Math.min((ts - start) / dur, 1), eased = 1 - Math.pow(1 - p, 3);
+          numEl.textContent = Math.round(nights * eased);
+          if (p < 1) requestAnimationFrame(step); else numEl.textContent = nights;
+        });
+      }
+    } else if (today <= end){
+      // モード2：旅行中 — きょう／あした
+      var tomorrow = new Date(today.getTime() + 86400000);
+      var tCard = dayCard(ymd(today));
+      var mCard = dayCard(ymd(tomorrow));
+      hero.innerHTML = '<h2 class="kids-h2">🌞 きょうと あした</h2>';
+      if (tCard) hero.appendChild(featureHTML('きょう', 'today', tCard));
+      if (mCard) {
+        hero.appendChild(featureHTML('あした', 'tomorrow', mCard));
+      } else {
+        var note = document.createElement('div');
+        note.className = 'kids-after';
+        note.innerHTML = '<div class="ka-emoji">🏠</div><h2>あしたは おうちで ゆっくり</h2>';
+        hero.appendChild(note);
+      }
+    } else {
+      // モード3：旅行後 — おしまい
+      hero.innerHTML =
+        '<div class="kids-after">' +
+          '<div class="ka-emoji">🎉</div>' +
+          '<h2>アメリカ りょこう たのしかったね！</h2>' +
+          '<p class="kids-sub">また いこうね</p>' +
+        '</div>' +
+        highlightsHTML(HL);
+    }
   });
 })();
 </script>
