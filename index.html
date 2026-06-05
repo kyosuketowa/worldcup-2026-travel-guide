@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
 <meta name="theme-color" content="#0f2c5e">
-<title>森下家 2026アメリカ大冒険 / 旅のしおり v14</title>
+<title>森下家 2026アメリカ大冒険 / 旅のしおり v15</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
@@ -721,6 +721,35 @@ h2::before{content:"";position:absolute;top:0;left:0;width:46px;height:3px;borde
 .day-map-legend li.landmark{border-left-color:var(--gold)}
 .day-map-legend li.landmark .pn{color:var(--gold)}
 
+/* ============================================================
+   v15 — 選手コラージュ（2×2 個別写真グリッド）
+   ============================================================ */
+.player-collage{margin:20px 0 28px;background:#0a101e;border-radius:16px;overflow:hidden;
+  box-shadow:0 10px 30px rgba(15,44,94,.2)}
+.player-collage .pc-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;background:#0a101e}
+.pc-item{position:relative;aspect-ratio:1/1;overflow:hidden;background:#0a101e}
+.pc-item img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;
+  transition:transform .5s ease,filter .5s ease}
+.pc-item:hover img,.pc-item:focus-within img{transform:scale(1.05);filter:brightness(1.05)}
+.pc-cap{position:absolute;left:0;right:0;bottom:0;padding:30px 13px 9px;display:flex;
+  align-items:baseline;gap:8px;flex-wrap:wrap;color:#fff;
+  background:linear-gradient(to top,rgba(8,14,28,.94) 0%,rgba(8,14,28,.5) 55%,transparent 100%)}
+.pc-cap strong{font-family:'Cormorant Garamond',var(--font-serif);font-size:16px;font-weight:700;
+  line-height:1.2;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+.pc-cap em{font-family:var(--font-mono);font-style:normal;font-size:12px;color:#ffd97f;font-weight:600}
+.pc-cap rt{color:rgba(255,255,255,.85)}
+.player-collage figcaption{padding:13px 20px;background:linear-gradient(135deg,#ba0c2f 0%,#ff6600 100%);
+  color:#fff;font-size:13px;font-weight:600;text-align:center;letter-spacing:.02em}
+@media(max-width:600px){
+  .pc-cap{padding:24px 9px 7px}
+  .pc-cap strong{font-size:13px}
+  .pc-cap em{font-size:10.5px}
+}
+@media (prefers-reduced-motion: reduce){
+  .pc-item img{transition:none !important}
+  .pc-item:hover img,.pc-item:focus-within img{transform:none !important;filter:none !important}
+}
+
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
@@ -737,7 +766,7 @@ h2::before{content:"";position:absolute;top:0;left:0;width:46px;height:3px;borde
   <div class="sb-head">
     <div class="brand">森下家<span class="acc"> / </span>2026</div>
     <div class="sub">USA World Cup Adventure<br>（アメリカW杯旅行）</div>
-    <span class="ver">VERSION 14.0</span>
+    <span class="ver">VERSION 15.0</span>
   </div>
   <nav class="sb-menu">
     <div class="sb-grp">
@@ -1755,9 +1784,14 @@ h2::before{content:"";position:absolute;top:0;left:0;width:46px;height:3px;borde
     <strong class="c-acc">がんばれ日本！</strong>
   </p>
 
-  <figure class="match-collage">
-    <img src="images/wc-match-collage.jpg" alt="日本代表 vs オランダ代表 選手コラージュ">
-    <figcaption>🇯🇵 <ruby>久保建英<rt>くぼ たけふさ</rt></ruby>・<ruby>堂安律<rt>どうあん りつ</rt></ruby>・<ruby>鎌田大地<rt>かまだ だいち</rt></ruby>　🆚　🇳🇱 ファン・ダイク・デ・ヨング・ハクポ</figcaption>
+  <figure class="player-collage">
+    <div class="pc-grid">
+      <div class="pc-item"><img src="images/kubo.jpg" alt="久保建英" loading="lazy"><span class="pc-cap"><strong><ruby>久保建英<rt>くぼ たけふさ</rt></ruby></strong><em>#8</em></span></div>
+      <div class="pc-item"><img src="images/doan.jpg" alt="堂安律" loading="lazy"><span class="pc-cap"><strong><ruby>堂安律<rt>どうあん りつ</rt></ruby></strong><em>#10</em></span></div>
+      <div class="pc-item"><img src="images/kamada.jpg" alt="鎌田大地" loading="lazy"><span class="pc-cap"><strong><ruby>鎌田大地<rt>かまだ だいち</rt></ruby></strong><em>#15</em></span></div>
+      <div class="pc-item"><img src="images/sano.jpg" alt="佐野海舟" loading="lazy"><span class="pc-cap"><strong><ruby>佐野海舟<rt>さの かいしゅう</rt></ruby></strong><em>#24</em></span></div>
+    </div>
+    <figcaption>🇯🇵 SAMURAI BLUE 注目の4選手　🆚　🇳🇱 オランダ</figcaption>
   </figure>
 
   <h2>試合情報 / Match Details</h2>
@@ -1820,6 +1854,31 @@ h2::before{content:"";position:absolute;top:0;left:0;width:46px;height:3px;borde
       </ul>
       <p class="small muted">※ 3度の準優勝、優勝経験なし。日本にとって格上の難敵。デ・リフト／シモンズは負傷で選外。</p>
       <figure class="player-spot"><img src="images/van-dijk.jpg" alt="Virgil van Dijk" loading="lazy"><figcaption><strong>ファン・ダイク（主将）</strong><span>リヴァプール／世界最高峰CB</span></figcaption></figure>
+    </div>
+  </div>
+
+  <h2>⚔️ 戦術の見どころ / Tactical Preview</h2>
+  <p class="small" style="margin:-.4em 0 14px">観戦をより楽しむための予習。断定ではなく「専門家はこう見ている」という視点です。複数の予想で多い日本の布陣は <strong>3-4-2-1</strong>。</p>
+  <div class="grid grid-2">
+    <div class="card accent">
+      <h4>🎯 最大のテーマ「上田綺世の得点」</h4>
+      <p class="small">元日本代表・鄭大世氏らの分析では、初戦の鍵は「守りながら、CF上田綺世にどう点を取らせるか」。そして「上田が抑えられた時、誰が点を取るか」も勝負を分ける。初戦は“負けない戦い方”が基本線。</p>
+      <p class="small muted">※ 2026年5〜6月の専門家分析より。実際のメンバー・布陣は当日発表。</p>
+    </div>
+    <div class="card">
+      <h4>🔑 久保建英の使い方</h4>
+      <p class="small">オランダは中盤の強度が非常に高い。専門家の多くは「久保をサイドに固定せず、中央で自由にプレーさせる」ことを推奨。久保が前を向ければ日本の攻撃は一気に活性化する。鎌田大地とのコンビネーションにも注目。</p>
+      <p class="small muted">※ 2026年5〜6月の専門家分析より。実際のメンバー・布陣は当日発表。</p>
+    </div>
+    <div class="card">
+      <h4>🇳🇱 オランダの脅威と弱点</h4>
+      <p class="small">元日本代表・安田理大氏は「オランダのキーマンはガクポとマレンの両ウイング。ここを自由にさせると止められないが、逆に抑え込めば相手は意気消沈する」と分析。中盤底のデ・ヨングがゲームを支配する“典型的オランダスタイル”。</p>
+      <p class="small muted">※ 2026年5〜6月の専門家分析より。実際のメンバー・布陣は当日発表。</p>
+    </div>
+    <div class="card">
+      <h4>🛡️ 日本の守備の鍵</h4>
+      <p class="small">専門家が口を揃えるのは、遠藤航と冨安健洋の守備、そして絶好調のマレンへの対応。GK鈴木彩艶のビルドアップ参加（足元）を使ったプレス回避も、強豪相手の生命線になる。</p>
+      <p class="small muted">※ 2026年5〜6月の専門家分析より。実際のメンバー・布陣は当日発表。</p>
     </div>
   </div>
 

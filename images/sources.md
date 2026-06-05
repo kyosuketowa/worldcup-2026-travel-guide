@@ -77,6 +77,19 @@ Getty Images / AP Photo は使用禁止。
 
 ※ 日本代表写真は2022年大会後の集合写真（当時の岸田首相を含む）であり、2026年の26名そのものではない。「SAMURAI BLUE のイメージ写真」として使用。
 
+## ✅ v15 で新規取得した画像（2026-06-05 · 選手コラージュ刷新）
+
+旧 `wc-match-collage.jpg`（三笘薫が写る合成画像）の参照を廃止し、出場4選手の個別写真を 2×2 グリッドで自前コラージュ化。すべてDL・>10KB検証・実JPEG化・幅1200px以内に正規化。
+
+| ファイル | 選手 | 出典 | ライセンス |
+|---------|------|------|----------|
+| `kubo.jpg` | 久保建英 #8（v13取得分を流用） | Wikipedia "Takefusa Kubo" | CC BY-SA |
+| `kamada.jpg` | 鎌田大地 #15 | Wikipedia "Daichi Kamada" pageimage（Eintracht Frankfurt 2022） | CC BY-SA |
+| `doan.jpg` | 堂安律 #10 | Commons: Ritsu Dōan 2024 (cropped) | CC BY 4.0 |
+| `sano.jpg` | 佐野海舟 #24 | Commons: Kaishu Sano 2024 (cropped) | CC BY 4.0 |
+
+※ 旧 `wc-match-collage.jpg` はHTMLから参照されなくなったため削除。
+
 ## ⚠️ ライセンス注意
 
 - Wikimedia Commons 画像は出典・帰属明記の上で家族用個人利用として使用。
