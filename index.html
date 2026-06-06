@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
 <meta name="theme-color" content="#0f2c5e">
-<title>森下家 2026アメリカ大冒険 / 旅のしおり v16</title>
+<title>森下家 2026アメリカ大冒険 / 旅のしおり v17</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
@@ -844,6 +844,39 @@ h2::before{content:"";position:absolute;top:0;left:0;width:46px;height:3px;borde
   .kids-day:hover .kids-day-img img,.kids-hl:hover img{transform:none !important}
 }
 
+/* ============================================================
+   v17 — モバイルUX根本修正（横スクロール排除・スワイプ暴発防止・タップ最適化）
+   ============================================================ */
+/* 1) グリッド/flex の min-content ブローアウト防止（横はみ出しの根本原因）
+      ＝ 1fr トラックが内部の最小幅で膨張するのを許容しないようにする */
+.content,.page{min-width:0}
+.grid,.place-gallery,.kids-days,.food-grid,.stat-grid,.timeline{min-width:0}
+.grid>*,.place-gallery>*,.kids-days>*,.food-grid>*,.stat-grid>*,
+.tl-item,.tl-body,.info,.row,.card,.callout>div{min-width:0}
+/* 2) 長い英数字・予約番号・URL・コードを折り返す */
+body{overflow-wrap:break-word}
+code,td,th,.info .val,.lead,.callout .c,.day-map-legend li,.kids-points li,.res-card,.row{overflow-wrap:anywhere;word-break:break-word}
+/* 3) 画像は必ず枠内 */
+img{max-width:100%;height:auto}
+/* 4) 横長テーブルは専用ラッパー内だけで横スクロール（ページ全体は揺らさない） */
+.table-wrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0}
+.table-wrap>.tb{margin:0}
+
+@media(max-width:960px){
+  /* 5) 横スクロール完全排除の保険（根本修正の上で二重化）。
+        body が overflow:auto でも横方向は出さない。縦スクロールは維持。 */
+  html,body{overflow-x:hidden;max-width:100%}
+  /* 6) タップ領域（最低44px）と本文の読みやすさ */
+  .lead{font-size:16px;line-height:1.8}
+  .card p,.kids-points li,.info .val,.info .lbl{font-size:15px}
+  .tb{font-size:13px}
+  .nav-btn{min-height:44px;display:inline-flex;align-items:center}
+  .sb-item{min-height:44px}
+  .map-link{min-height:32px}
+  /* 7) ヒーロー画像はスマホで控えめな高さに（縦長画面で巨大化させない） */
+  .page-hero:not(.compact){height:min(46vh,340px);min-height:230px}
+}
+
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
@@ -860,7 +893,7 @@ h2::before{content:"";position:absolute;top:0;left:0;width:46px;height:3px;borde
   <div class="sb-head">
     <div class="brand">森下家<span class="acc"> / </span>2026</div>
     <div class="sub">USA World Cup Adventure<br>（アメリカW杯旅行）</div>
-    <span class="ver">VERSION 16.0</span>
+    <span class="ver">VERSION 17.0</span>
   </div>
   <nav class="sb-menu">
     <div class="sb-grp">
@@ -4160,16 +4193,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (e.key === 'ArrowRight') { showPage(currentIndex + 1); e.preventDefault(); }
   });
 
-  let tx = 0, ty = 0;
-  document.addEventListener('touchstart', (e) => { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, {passive:true});
-  document.addEventListener('touchend', (e) => {
-    const dx = e.changedTouches[0].clientX - tx;
-    const dy = e.changedTouches[0].clientY - ty;
-    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 60) {
-      if (dx > 0) showPage(currentIndex - 1);
-      else showPage(currentIndex + 1);
-    }
-  });
+  // v17: 横スワイプによるページ送りは無効化（誤爆でページが飛ぶ問題の対策）。
+  //       ページ移動はサイドバー・下部の前へ/次へボタン・キーボード矢印で行う。
 
   // Hamburger
   const hamb = document.getElementById('hamburger-btn');
@@ -4743,6 +4768,23 @@ document.addEventListener('DOMContentLoaded', function() {
         '</div>' +
         highlightsHTML(HL);
     }
+  });
+})();
+</script>
+
+<!-- ============ v17: 横長テーブルを横スクロールラッパーで囲む ============ -->
+<script>
+(function(){
+  function ready(fn){ if(document.readyState!=='loading'){ fn(); } else { document.addEventListener('DOMContentLoaded', fn); } }
+  ready(function(){
+    Array.prototype.forEach.call(document.querySelectorAll('table.tb'), function(tb){
+      var parent = tb.parentNode;
+      if (parent && parent.classList && parent.classList.contains('table-wrap')) return;
+      var wrap = document.createElement('div');
+      wrap.className = 'table-wrap';
+      parent.insertBefore(wrap, tb);
+      wrap.appendChild(tb);
+    });
   });
 })();
 </script>
