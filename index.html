@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
 <meta name="theme-color" content="#0f2c5e">
-<title>森下家 2026アメリカ大冒険 / 旅のしおり v18</title>
+<title>森下家 2026アメリカ大冒険 / 旅のしおり v19</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
@@ -934,6 +934,20 @@ img{max-width:100%;height:auto}
   .info .lbl{padding-top:0}
 }
 
+/* ============================================================
+   v19 — 旅行中ナビ（きょうボタン・全日程一覧ジャンプ）
+   ============================================================ */
+.today-jump{position:fixed;top:14px;right:14px;z-index:1001;display:inline-flex;align-items:center;gap:4px;
+  background:var(--accent);color:#fff;border:1px solid var(--accent);border-radius:999px;
+  padding:9px 16px;font-size:13.5px;font-weight:700;cursor:pointer;box-shadow:var(--shadow);min-height:40px}
+.today-jump:hover{background:var(--accent-l);border-color:var(--accent-l)}
+@media(max-width:960px){.today-jump{top:calc(14px + env(safe-area-inset-top,0px))}}
+/* 全日程一覧：行タップでその日のページへ */
+.tb tr.row-link{cursor:pointer}
+.tb tr.row-link:hover td{background:#eef3fb}
+.tb tr.row-link td:first-child::after{content:" ›";color:var(--accent);font-weight:700}
+@media print{.today-jump,.hamburger{display:none !important}}
+
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
@@ -941,6 +955,7 @@ img{max-width:100%;height:auto}
 <body>
 
 <button class="hamburger" id="hamburger-btn" aria-label="メニュー">☰</button>
+<button class="today-jump" id="today-jump" aria-label="きょうのページへ">📅 きょう</button>
 <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
 <div class="app">
@@ -950,7 +965,7 @@ img{max-width:100%;height:auto}
   <div class="sb-head">
     <div class="brand">森下家<span class="acc"> / </span>2026</div>
     <div class="sub">USA World Cup Adventure<br>（アメリカW杯旅行）</div>
-    <span class="ver">VERSION 18.0</span>
+    <span class="ver">VERSION 19.0</span>
   </div>
   <nav class="sb-menu">
     <div class="sb-grp">
@@ -959,8 +974,7 @@ img{max-width:100%;height:auto}
     <div class="sb-grp">
       <div class="sb-grp-ttl">全体</div>
       <a class="sb-item" href="#cover" data-target="cover"><span class="n">01</span>表紙</a>
-      <a class="sb-item" href="#overview" data-target="overview"><span class="n">02</span>旅の概要</a>
-      <a class="sb-item" href="#schedule" data-target="schedule"><span class="n">03</span>全日程一覧</a>
+      <a class="sb-item" href="#schedule" data-target="schedule"><span class="n">02</span>全日程一覧</a>
     </div>
     <div class="sb-grp">
       <div class="sb-grp-ttl">日別の予定</div>
@@ -978,10 +992,11 @@ img{max-width:100%;height:auto}
     </div>
     <div class="sb-grp">
       <div class="sb-grp-ttl">情報・予約</div>
-      <a class="sb-item" href="#budget" data-target="budget"><span class="n">13</span>費用総額</a>
-      <a class="sb-item" href="#uber" data-target="uber"><span class="n">14</span>Uber料金詳細</a>
-      <a class="sb-item" href="#reservations" data-target="reservations"><span class="n">15</span>予約管理</a>
-      <a class="sb-item" href="#practical" data-target="practical"><span class="n">16</span>実用情報</a>
+      <a class="sb-item" href="#overview" data-target="overview"><span class="n">15</span>旅の概要</a>
+      <a class="sb-item" href="#budget" data-target="budget"><span class="n">16</span>費用総額</a>
+      <a class="sb-item" href="#uber" data-target="uber"><span class="n">17</span>Uber料金詳細</a>
+      <a class="sb-item" href="#reservations" data-target="reservations"><span class="n">18</span>予約管理</a>
+      <a class="sb-item" href="#practical" data-target="practical"><span class="n">19</span>実用情報</a>
     </div>
   </nav>
 </aside>
@@ -1021,67 +1036,18 @@ img{max-width:100%;height:auto}
   </div>
 </section>
 
-<!-- ============ 02. OVERVIEW（旅行者 + ハイライト） ============ -->
-<section id="overview" class="page">
-  <div class="page-hero" style="background-image:linear-gradient(0deg,rgba(15,44,94,.35) 0%,rgba(15,44,94,.05) 55%,rgba(15,44,94,.5) 100%),url('images/airplane.jpg')">
-    <div class="page-hero-inner">
-      <div class="page-hero-kicker">② 旅の概要</div>
-      <h1 class="page-hero-title">旅の概要</h1>
-      <p class="page-hero-sub">旅行者とハイライト</p>
-    </div>
-  </div>
-
-  <p class="lead">
-    家族4人で10日間、アメリカ横断。<br>
-    ニューヨークで映画聖地を、ダラスでW杯を、ロサンゼルスでディズニーとハリウッドを。<br>
-    子供たちの一生の思い出になる夏。
-  </p>
-
-  <h2>👨‍👩‍👧‍👦 旅行者</h2>
-  <table class="tb">
-    <tr><th>名前</th><th>役</th><th>ひとこと</th></tr>
-    <tr><td><ruby>森下 恭祐<rt>もりした きょうすけ</rt></ruby></td><td>父</td><td>YouMeEra代表・映画マニア・運転担当</td></tr>
-    <tr><td><ruby>森下 えり子<rt>もりした えりこ</rt></ruby></td><td>母</td><td>旅のマネージャー・写真班</td></tr>
-    <tr><td>森下 ゆうしん</td><td><ruby>長男<rt>ちょうなん</rt></ruby>（8-9歳）</td><td>ジェットコースター担当</td></tr>
-    <tr><td>森下 みな実</td><td><ruby>長女<rt>ちょうじょ</rt></ruby>（7歳）</td><td>ディズニー担当・ウォータースライダー部</td></tr>
-  </table>
-
-  <h2>✅ 主要確定情報</h2>
-  <div class="stat-grid">
-    <div class="stat">
-      <div class="lbl">W杯チケット（FIFA WORLD CUP TICKET）</div>
-      <div class="v sm">Block 440 / Row 19</div>
-      <div class="sub">Seat 7-8-9-10 · Category 2 · $3,426.74</div>
-    </div>
-    <div class="stat">
-      <div class="lbl">Enterprise RANGE ROVER（レンタカー）</div>
-      <div class="v sm">Conf. 2106256906</div>
-      <div class="sub">6/18 8:00-17:30 · Plus会員 ●●●●●●●</div>
-    </div>
-    <div class="stat">
-      <div class="lbl">Locanda Verde（予約 5/13 必須）</div>
-      <div class="v sm">6/12 (金) 13:30</div>
-      <div class="sub">Tribeca Film Festival 開催中</div>
-    </div>
-    <div class="stat">
-      <div class="lbl">自由の女神 クラウンアクセス（STATUE OF LIBERTY）</div>
-      <div class="v sm">Conf. 72348187</div>
-      <div class="sub">6/12 (金) 10:00 集合</div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ 03. SCHEDULE（全日程一覧） ============ -->
 <section id="schedule" class="page">
   <div class="page-hero" style="background-image:linear-gradient(0deg,rgba(15,44,94,.35) 0%,rgba(15,44,94,.05) 55%,rgba(15,44,94,.5) 100%),url('images/times-square.jpg')">
     <div class="page-hero-inner">
-      <div class="page-hero-kicker">③ 全日程</div>
+      <div class="page-hero-kicker">② 全日程</div>
       <h1 class="page-hero-title">全日程一覧</h1>
-      <p class="page-hero-sub">10日間のすべて</p>
+      <p class="page-hero-sub">10日間のすべて · 行をタップでその日のページへ</p>
     </div>
   </div>
 
   <h2>📅 日程表</h2>
+  <p class="small muted" style="margin:-4px 0 10px">👆 行をタップすると、その日の詳しいページにジャンプします</p>
   <table class="tb">
     <tr><th>日付</th><th>都市</th><th>メインイベント</th><th>宿泊</th></tr>
     <tr><td>6/10 (水)</td><td>自宅（熊取町）</td><td>🛏️ 出発前日・書類確認・荷物最終チェック・22時就寝</td><td>自宅</td></tr>
@@ -3567,6 +3533,56 @@ img{max-width:100%;height:auto}
   </div>
 </section>
 
+<!-- ============ OVERVIEW（旅行者 + ハイライト）※参考資料として後段に配置 ============ -->
+<section id="overview" class="page">
+  <div class="page-hero" style="background-image:linear-gradient(0deg,rgba(15,44,94,.35) 0%,rgba(15,44,94,.05) 55%,rgba(15,44,94,.5) 100%),url('images/airplane.jpg')">
+    <div class="page-hero-inner">
+      <div class="page-hero-kicker">旅の概要</div>
+      <h1 class="page-hero-title">旅の概要</h1>
+      <p class="page-hero-sub">旅行者とハイライト</p>
+    </div>
+  </div>
+
+  <p class="lead">
+    家族4人で10日間、アメリカ横断。<br>
+    ニューヨークで映画聖地を、ダラスでW杯を、ロサンゼルスでディズニーとハリウッドを。<br>
+    子供たちの一生の思い出になる夏。
+  </p>
+
+  <h2>👨‍👩‍👧‍👦 旅行者</h2>
+  <table class="tb">
+    <tr><th>名前</th><th>役</th><th>ひとこと</th></tr>
+    <tr><td><ruby>森下 恭祐<rt>もりした きょうすけ</rt></ruby></td><td>父</td><td>YouMeEra代表・映画マニア・運転担当</td></tr>
+    <tr><td><ruby>森下 えり子<rt>もりした えりこ</rt></ruby></td><td>母</td><td>旅のマネージャー・写真班</td></tr>
+    <tr><td>森下 ゆうしん</td><td><ruby>長男<rt>ちょうなん</rt></ruby>（8-9歳）</td><td>ジェットコースター担当</td></tr>
+    <tr><td>森下 みな実</td><td><ruby>長女<rt>ちょうじょ</rt></ruby>（7歳）</td><td>ディズニー担当・ウォータースライダー部</td></tr>
+  </table>
+
+  <h2>✅ 主要確定情報</h2>
+  <div class="stat-grid">
+    <div class="stat">
+      <div class="lbl">W杯チケット（FIFA WORLD CUP TICKET）</div>
+      <div class="v sm">Block 440 / Row 19</div>
+      <div class="sub">Seat 7-8-9-10 · Category 2 · $3,426.74</div>
+    </div>
+    <div class="stat">
+      <div class="lbl">Enterprise RANGE ROVER（レンタカー）</div>
+      <div class="v sm">Conf. 2106256906</div>
+      <div class="sub">6/18 8:00-17:30 · Plus会員 ●●●●●●●</div>
+    </div>
+    <div class="stat">
+      <div class="lbl">Locanda Verde（予約 5/13 必須）</div>
+      <div class="v sm">6/12 (金) 13:30</div>
+      <div class="sub">Tribeca Film Festival 開催中</div>
+    </div>
+    <div class="stat">
+      <div class="lbl">自由の女神 クラウンアクセス（STATUE OF LIBERTY）</div>
+      <div class="v sm">Conf. 72348187</div>
+      <div class="sub">6/12 (金) 10:00 集合</div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ 13. BUDGET（費用総額） ============ -->
 <section id="budget" class="page">
   <div class="page-hero compact">
@@ -4227,7 +4243,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const num = clone.querySelector('.n');
       const numTxt = num ? num.textContent.trim() : '';
       if (num) num.remove();
-      label = (numTxt ? numTxt + ' ' : '') + clone.textContent.trim();
+      // 「6/14」等は前置、純連番（01,02…）はカウンターと重複するので省く
+      label = (numTxt && !/^\d+$/.test(numTxt) ? numTxt + ' ' : '') + clone.textContent.trim();
     }
     document.getElementById('page-counter').textContent =
       `${String(index + 1).padStart(2,'0')}/${String(pages.length).padStart(2,'0')}` + (label ? ' · ' + label : '');
@@ -4236,11 +4253,58 @@ document.addEventListener('DOMContentLoaded', function() {
     const content = document.querySelector('.content');
     content && content.scrollTo({ top: 0, behavior: 'instant' });
     window.scrollTo({ top: 0, behavior: 'instant' }); // スマホ幅では window がスクローラー
-    try { localStorage.setItem('travelGuideV6Page', index); } catch (e) {}
+    try { localStorage.setItem('travelGuidePage', targetId); } catch (e) {}
   }
 
-  const saved = parseInt(localStorage.getItem('travelGuideV6Page') || '0');
-  showPage(saved >= 0 && saved < pages.length ? saved : 0);
+  // 旅行期間（6/10〜6/20）中は「きょうのページ」のidを返す
+  function todayPageId() {
+    const n = new Date();
+    if (n.getFullYear() === 2026 && n.getMonth() === 5 && n.getDate() >= 10 && n.getDate() <= 20) {
+      return 'd' + n.getDate();
+    }
+    return null;
+  }
+  const todayId = todayPageId();
+
+  // 起動ページ：その日初めて開いたときは「きょう」を優先、同日内は前回ページを復元
+  let firstOpenToday = true;
+  const todayStr = new Date().toDateString();
+  try {
+    firstOpenToday = localStorage.getItem('lastVisitDate') !== todayStr;
+    localStorage.setItem('lastVisitDate', todayStr);
+  } catch (e) {}
+  let startIndex = -1;
+  if (todayId && firstOpenToday) startIndex = pages.findIndex(p => p.id === todayId);
+  if (startIndex < 0) {
+    let savedId = null;
+    try { savedId = localStorage.getItem('travelGuidePage'); } catch (e) {}
+    startIndex = pages.findIndex(p => p.id === savedId);
+  }
+  showPage(startIndex >= 0 ? startIndex : 0);
+
+  // 右上「📅 きょう」ボタン（旅行期間外は非表示）
+  const todayBtn = document.getElementById('today-jump');
+  if (todayBtn) {
+    if (todayId && pages.some(p => p.id === todayId)) {
+      todayBtn.addEventListener('click', () => {
+        showPage(pages.findIndex(p => p.id === todayId));
+      });
+    } else {
+      todayBtn.style.display = 'none';
+    }
+  }
+
+  // 全日程一覧：行タップでその日のページへ
+  document.querySelectorAll('#schedule .tb tr').forEach(tr => {
+    const c = tr.cells && tr.cells[0];
+    if (!c || c.tagName !== 'TD') return;
+    const m = c.textContent.match(/^\s*6\/(\d{1,2})/);
+    if (!m) return;
+    const i = pages.findIndex(p => p.id === 'd' + m[1]);
+    if (i < 0) return;
+    tr.classList.add('row-link');
+    tr.addEventListener('click', () => showPage(i));
+  });
 
   navItems.forEach(item => {
     item.addEventListener('click', (e) => {
@@ -4868,6 +4932,14 @@ document.addEventListener('DOMContentLoaded', function() {
 (function(){
   function ready(fn){ if(document.readyState!=='loading'){ fn(); } else { document.addEventListener('DOMContentLoaded', fn); } }
   ready(function(){
+    // 日付・時刻で始まる短いセルは折り返さない（「6/10 (水)」が縦に割れるのを防ぐ）
+    Array.prototype.forEach.call(document.querySelectorAll('.tb td'), function(td){
+      var t = td.textContent.trim();
+      if (t.length <= 16 && (/^\d{1,2}\/\d{1,2}/.test(t) || /^\d{1,2}:\d{2}/.test(t))) {
+        td.style.whiteSpace = 'nowrap';
+      }
+    });
+
     Array.prototype.forEach.call(document.querySelectorAll('table.tb'), function(tb){
       var parent = tb.parentNode;
       if (parent && parent.classList && parent.classList.contains('table-wrap')) return;
