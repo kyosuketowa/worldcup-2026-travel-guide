@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
 <meta name="theme-color" content="#0f2c5e">
-<title>森下家 2026アメリカ大冒険 / 旅のしおり v19</title>
+<title>森下家 2026アメリカ大冒険 / 旅のしおり v20</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
@@ -948,6 +948,13 @@ img{max-width:100%;height:auto}
 .tb tr.row-link td:first-child::after{content:" ›";color:var(--accent);font-weight:700}
 @media print{.today-jump,.hamburger{display:none !important}}
 
+/* ============================================================
+   v20 — スポットカードのタップリンク（JSが .spot-link を付与）
+   ============================================================ */
+.spot-link{cursor:pointer}
+.spot-link-ic{color:var(--accent);font-weight:700;font-size:.85em}
+.place-card .spot-link-ic,.pc-cap .spot-link-ic{color:#ffd97f}
+
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
@@ -965,7 +972,7 @@ img{max-width:100%;height:auto}
   <div class="sb-head">
     <div class="brand">森下家<span class="acc"> / </span>2026</div>
     <div class="sub">USA World Cup Adventure<br>（アメリカW杯旅行）</div>
-    <span class="ver">VERSION 19.0</span>
+    <span class="ver">VERSION 20.0</span>
   </div>
   <nav class="sb-menu">
     <div class="sb-grp">
@@ -4967,6 +4974,121 @@ document.addEventListener('DOMContentLoaded', function() {
     var mo = new MutationObserver(function(){ requestAnimationFrame(markScrollable); });
     Array.prototype.forEach.call(document.querySelectorAll('.page'), function(p){ mo.observe(p, {attributes:true, attributeFilter:['class']}); });
     markScrollable();
+  });
+})();
+</script>
+
+<!-- ============ v20: スポット画像タップで紹介ページへ（日本語優先・公式・Instagram） ============ -->
+<script>
+(function(){
+  function ready(fn){ if(document.readyState!=='loading'){ fn(); } else { document.addEventListener('DOMContentLoaded', fn); } }
+  ready(function(){
+    // 「カード見出しに含まれる文字列」→ 紹介ページURL。上から順に最初の一致を採用
+    var SPOT_LINKS = [
+      // --- ニューヨーク ---
+      ['Dakota House', 'https://ja.wikipedia.org/wiki/ダコタ・ハウス'],
+      ['Strawberry Fields', 'https://ja.wikipedia.org/wiki/ジョン・レノン'],
+      ['Top of the Rock', 'https://ja.wikipedia.org/wiki/ロックフェラー・センター'],
+      ['Times Square', 'https://ja.wikipedia.org/wiki/タイムズスクエア'],
+      ['Best Bagel', 'https://www.bestbagelandcoffee.com/'],
+      ['自由の女神', 'https://ja.wikipedia.org/wiki/自由の女神像_(ニューヨーク)'],
+      ['Ellis Island', 'https://ja.wikipedia.org/wiki/エリス島'],
+      ['Locanda Verde', 'https://www.locandaverdenyc.com/'],
+      ['Robert De Niro', 'https://ja.wikipedia.org/wiki/ロバート・デ・ニーロ'],
+      ['DUMBO', 'https://ja.wikipedia.org/wiki/ワンス・アポン・ア・タイム・イン・アメリカ'],
+      ['Old St. Patrick', 'https://oldcathedral.org/'],
+      ['Little Italy', 'https://ja.wikipedia.org/wiki/ゴッドファーザー'],
+      // --- ダラス ---
+      ['Six Flags Over Texas', 'https://www.sixflags.com/overtexas'],
+      ['New Texas Giant', 'https://en.wikipedia.org/wiki/New_Texas_Giant'],
+      ['Titan', 'https://en.wikipedia.org/wiki/Titan_(roller_coaster)'],
+      ['Surf Lagoon', 'https://www.sixflags.com/hurricaneharbortexas'],
+      ['Hurricane Harbor', 'https://www.sixflags.com/hurricaneharbortexas'],
+      ['Pappadeaux', 'https://pappadeaux.com/'],
+      // --- W杯 ---
+      ['AT&T Stadium', 'https://ja.wikipedia.org/wiki/AT%26T%E3%82%B9%E3%82%BF%E3%82%B8%E3%82%A2%E3%83%A0'],
+      ['久保建英', 'https://www.instagram.com/takefusa.kubo/'],
+      ['堂安律', 'https://www.instagram.com/doan_ritsu/'],
+      ['鎌田大地', 'https://ja.wikipedia.org/wiki/鎌田大地'],
+      ['佐野海舟', 'https://ja.wikipedia.org/wiki/佐野海舟'],
+      ['ファン・ダイク', 'https://www.instagram.com/virgilvandijk/'],
+      // --- ディズニー ---
+      ['Disney California Adventure', 'https://disneyland.disney.go.com/destinations/disney-california-adventure/'],
+      ['Radiator Springs Racers', 'https://en.wikipedia.org/wiki/Radiator_Springs_Racers'],
+      ['World of Color', 'https://en.wikipedia.org/wiki/World_of_Color'],
+      ['Mickey', 'https://ja.wikipedia.org/wiki/ミッキーマウス'],
+      ['Guardians', 'https://en.wikipedia.org/wiki/Guardians_of_the_Galaxy_–_Mission:_Breakout!'],
+      ['WEB SLINGERS', 'https://en.wikipedia.org/wiki/WEB_SLINGERS:_A_Spider-Man_Adventure'],
+      ['Pixar Pal-A-Round', 'https://en.wikipedia.org/wiki/Pixar_Pal-A-Round'],
+      ['Cars Land', 'https://en.wikipedia.org/wiki/Cars_Land'],
+      ['Pirates Lair', 'https://en.wikipedia.org/wiki/Tom_Sawyer_Island'],
+      ['Animation Building', 'https://disneyland.disney.go.com/destinations/disney-california-adventure/'],
+      ['Sleeping Beauty Castle', 'https://ja.wikipedia.org/wiki/眠れる森の美女の城'],
+      ['Rise of the Resistance', 'https://en.wikipedia.org/wiki/Star_Wars:_Rise_of_the_Resistance'],
+      ['Space Mountain', 'https://ja.wikipedia.org/wiki/スペース・マウンテン'],
+      ['Pirates of the Caribbean', 'https://ja.wikipedia.org/wiki/カリブの海賊'],
+      ['Matterhorn', 'https://en.wikipedia.org/wiki/Matterhorn_Bobsleds'],
+      ['Big Thunder', 'https://ja.wikipedia.org/wiki/ビッグサンダー・マウンテン'],
+      ['Peter Pan', 'https://ja.wikipedia.org/wiki/ピーターパン空の旅'],
+      ['Jungle Cruise', 'https://ja.wikipedia.org/wiki/ジャングルクルーズ'],
+      ['small world', 'https://ja.wikipedia.org/wiki/イッツ・ア・スモールワールド'],
+      ['Haunted Mansion', 'https://ja.wikipedia.org/wiki/ホーンテッドマンション'],
+      ['Tiana', "https://en.wikipedia.org/wiki/Tiana's_Bayou_Adventure"],
+      ['Indiana Jones', 'https://en.wikipedia.org/wiki/Indiana_Jones_Adventure'],
+      ['Dole Whip', 'https://en.wikipedia.org/wiki/Dole_Whip'],
+      ['Wondrous Journeys', 'https://en.wikipedia.org/wiki/Wondrous_Journeys'],
+      // --- ロサンゼルス ---
+      ['Dodger Stadium', 'https://ja.wikipedia.org/wiki/ドジャー・スタジアム'],
+      ['Dodger Dog', 'https://en.wikipedia.org/wiki/Dodger_Dog'],
+      ['Marina del Rey', 'https://www.visitmarinadelrey.com/'],
+      ['大谷翔平', 'https://www.instagram.com/shoheiohtani/'],
+      ['山本由伸', 'https://ja.wikipedia.org/wiki/山本由伸'],
+      ['佐々木朗希', 'https://ja.wikipedia.org/wiki/佐々木朗希'],
+      ['Range Rover', 'https://www.landrover.co.jp/'],
+      ['Hollywood Sign', 'https://hollywoodsign.org/'],
+      ['TCL Chinese', 'https://www.tclchinesetheatres.com/'],
+      ['In-N-Out', 'https://www.in-n-out.com/'],
+      ['The Grove', 'https://thegrovela.com/'],
+      ['Griffith', 'https://griffithobservatory.org/']
+    ];
+
+    function titleEl(card){
+      return card.querySelector('.pc-cap strong, figcaption strong, .body h4');
+    }
+    function titleText(el){
+      var c = el.cloneNode(true);
+      Array.prototype.forEach.call(c.querySelectorAll('rt'), function(r){ r.parentNode.removeChild(r); });
+      return c.textContent.trim();
+    }
+    Array.prototype.forEach.call(
+      document.querySelectorAll('.place-card, .attr-card, .pc-item, .player-spot'),
+      function(card){
+        var t = titleEl(card);
+        if (!t) return;
+        var title = titleText(t);
+        var url = null;
+        for (var i = 0; i < SPOT_LINKS.length; i++){
+          if (title.indexOf(SPOT_LINKS[i][0]) !== -1){ url = SPOT_LINKS[i][1]; break; }
+        }
+        if (!url) return;
+        card.classList.add('spot-link');
+        card.setAttribute('role', 'link');
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('aria-label', title + ' の紹介ページを開く');
+        var ic = document.createElement('span');
+        ic.className = 'spot-link-ic';
+        ic.textContent = ' ↗';
+        t.appendChild(ic);
+        function go(){ window.open(url, '_blank', 'noopener'); }
+        card.addEventListener('click', function(e){
+          if (e.target.closest && e.target.closest('a')) return;
+          go();
+        });
+        card.addEventListener('keydown', function(e){
+          if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); go(); }
+        });
+      }
+    );
   });
 })();
 </script>
