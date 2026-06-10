@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
 <meta name="theme-color" content="#0f2c5e">
-<title>森下家 2026アメリカ大冒険 / 旅のしおり v17</title>
+<title>森下家 2026アメリカ大冒険 / 旅のしおり v18</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
@@ -40,7 +40,7 @@
 html,body{height:100%;margin:0;overflow:hidden}
 body{
   font-family:var(--font-sans);color:var(--ink);background:var(--bg-2);
-  line-height:1.75;font-size:15px;-webkit-font-smoothing:antialiased;
+  line-height:1.78;font-size:16px;-webkit-font-smoothing:antialiased;
 }
 img{max-width:100%;height:auto;display:block}
 a{color:var(--primary);text-decoration:none}
@@ -127,7 +127,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .cover .tag{font-size:16px;color:rgba(255,255,255,.9);margin-bottom:32px;line-height:1.7}
 .cover-meta{display:flex;gap:40px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.2);padding-top:22px;margin-top:28px}
 .cover-meta .it{min-width:120px}
-.cover-meta .lbl{font-family:var(--font-mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#ffd97f;margin-bottom:4px}
+.cover-meta .lbl{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;color:#ffd97f;margin-bottom:4px}
 .cover-meta .val{font-family:var(--font-serif);font-size:20px;font-weight:600;line-height:1.3}
 
 /* ============ TYPOGRAPHY ============ */
@@ -348,8 +348,8 @@ ruby rt{font-size:0.55em;color:#888;font-weight:400;line-height:1}
 /* ============ GRAND TOTAL（予算） ============ */
 .grand-total{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-l) 100%);color:#fff;padding:32px 40px;border-radius:16px;margin:20px 0 28px;text-align:center;box-shadow:var(--shadow-lg)}
 .grand-total-amount{display:flex;justify-content:center;align-items:baseline;gap:8px;margin-bottom:12px}
-.grand-total-amount .currency{font-family:var(--font-serif);font-size:28px;color:#ffd97f}
-.grand-total-amount .amount{font-family:var(--font-serif);font-size:52px;font-weight:700;letter-spacing:-.02em;line-height:1}
+.grand-total-amount .currency{font-family:var(--font-serif);font-size:clamp(18px,4.5vw,28px);color:#ffd97f}
+.grand-total-amount .amount{font-family:var(--font-serif);font-size:clamp(28px,8vw,52px);font-weight:700;letter-spacing:-.02em;line-height:1}
 .grand-total-jpy{font-size:15px;color:rgba(255,255,255,.9);margin-bottom:6px;font-weight:500}
 .grand-total-note{font-size:12px;color:rgba(255,255,255,.7)}
 .budget-cat{background:var(--card);border:1px solid var(--border);border-radius:10px;margin:12px 0;overflow:hidden;box-shadow:var(--shadow-sm)}
@@ -377,7 +377,7 @@ ruby rt{font-size:0.55em;color:#888;font-weight:400;line-height:1}
 .sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:999}
 .sidebar-overlay.show{display:block}
 @media(max-width:960px){
-  html,body{overflow:auto;height:auto}
+  html,body{overflow:auto;overflow-x:hidden;height:auto}
   .hamburger{display:block}
   .app{grid-template-columns:1fr;height:auto}
   .sidebar{position:fixed;top:0;left:0;width:85%;max-width:300px;height:100vh;transform:translateX(-100%);transition:transform .3s ease;z-index:1000;box-shadow:0 0 40px rgba(0,0,0,.2)}
@@ -394,10 +394,9 @@ ruby rt{font-size:0.55em;color:#888;font-weight:400;line-height:1}
   .page-hero{margin:-28px -22px 24px;padding:28px 22px;height:min(38vh,280px)}
   .page-hero.compact{padding:20px 22px}
   .page-hero-title{font-size:22px}
-  .tb{font-size:12px}
 }
 @media(max-width:480px){
-  .page-hero-title{font-size:20px}
+  .page-hero-title{font-size:21px}
   .cover h1{font-size:26px}
 }
 .map-link{display:inline-flex;align-items:center;gap:3px;margin-left:6px;padding:2px 8px;font-size:10.5px;text-decoration:none;background:#fff;border:1px solid var(--border);border-radius:4px;color:var(--primary);vertical-align:baseline;transition:.15s;font-family:var(--font-mono);font-weight:600;letter-spacing:.02em;white-space:nowrap}
@@ -545,7 +544,7 @@ ruby rt{font-size:0.55em;color:#888;font-weight:400;line-height:1}
 @media(max-width:600px){#to-top{right:16px;bottom:74px;width:40px;height:40px;font-size:18px}}
 
 /* A. 長い導入文（.lead）の折りたたみ */
-.lead.collapsible .lead-clip{max-height:3.8em;overflow:hidden;
+.lead.collapsible .lead-clip{max-height:5.7em;overflow:hidden;
   -webkit-mask-image:linear-gradient(180deg,#000 55%,transparent);
   mask-image:linear-gradient(180deg,#000 55%,transparent);transition:max-height .45s ease}
 .lead.collapsible.open .lead-clip{max-height:1200px;-webkit-mask-image:none;mask-image:none}
@@ -606,7 +605,7 @@ ruby rt{font-size:0.55em;color:#888;font-weight:400;line-height:1}
 .page-hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
   background:linear-gradient(0deg, var(--theme-scrim, rgba(15,44,94,.62)) 0%, transparent 58%)}
 .page-hero-inner{position:relative;z-index:2;max-width:860px}
-.page-hero-kicker{display:inline-flex;align-items:center;gap:11px;font-size:12px;letter-spacing:.32em;
+.page-hero-kicker{display:inline-flex;align-items:center;gap:11px;font-size:12.5px;letter-spacing:.14em;
   color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.5);margin-bottom:14px}
 .page-hero-kicker::before{content:"";width:30px;height:2px;background:var(--theme-2,var(--gold));flex:none}
 .page-hero-title{font-family:'Cormorant Garamond',var(--font-serif);
@@ -614,12 +613,12 @@ ruby rt{font-size:0.55em;color:#888;font-weight:400;line-height:1}
   margin:0 0 4px;text-shadow:0 3px 26px rgba(0,0,0,.45)}
 .page-hero-title::after{content:"";display:block;width:72px;height:4px;border-radius:3px;
   background:var(--theme,var(--accent));margin-top:18px;box-shadow:0 2px 12px rgba(0,0,0,.3)}
-.page-hero-sub{font-family:var(--font-mono);font-size:12.5px;font-weight:500;letter-spacing:.16em;
-  text-transform:uppercase;color:rgba(255,255,255,.95);margin-top:16px;text-shadow:0 2px 10px rgba(0,0,0,.5)}
+.page-hero-sub{font-family:var(--font-sans);font-size:13.5px;font-weight:600;letter-spacing:.05em;
+  color:rgba(255,255,255,.95);margin-top:16px;text-shadow:0 2px 10px rgba(0,0,0,.5)}
 @media(max-width:600px){
   .page-hero:not(.compact){height:min(56vh,460px);min-height:300px}
   .page-hero-title{font-size:clamp(30px,9vw,42px)}
-  .page-hero-sub{font-size:11px;letter-spacing:.12em}
+  .page-hero-sub{font-size:12.5px;letter-spacing:.03em}
 }
 
 /* --- 7. 見出しの雑誌的トリートメント＋セクション区切り --- */
@@ -855,26 +854,84 @@ h2::before{content:"";position:absolute;top:0;left:0;width:46px;height:3px;borde
 .tl-item,.tl-body,.info,.row,.card,.callout>div{min-width:0}
 /* 2) 長い英数字・予約番号・URL・コードを折り返す */
 body{overflow-wrap:break-word}
-code,td,th,.info .val,.lead,.callout .c,.day-map-legend li,.kids-points li,.res-card,.row{overflow-wrap:anywhere;word-break:break-word}
+code,.info .val,.lead,.callout .c,.day-map-legend li,.kids-points li,.res-card,.row{overflow-wrap:anywhere;word-break:break-word}
+/* 表のセルは語の途中でぶつ切りにしない（収まらない表は .table-wrap が横スクロールを受け持つ） */
+td,th{overflow-wrap:break-word}
 /* 3) 画像は必ず枠内 */
 img{max-width:100%;height:auto}
 /* 4) 横長テーブルは専用ラッパー内だけで横スクロール（ページ全体は揺らさない） */
-.table-wrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0}
+.table-wrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0;scrollbar-width:thin}
 .table-wrap>.tb{margin:0}
+.table-scroll-hint{display:none;margin:14px 0 -10px;font-size:11px;color:var(--muted);text-align:right}
+.table-scroll-hint.show{display:block}
 
 @media(max-width:960px){
   /* 5) 横スクロール完全排除の保険（根本修正の上で二重化）。
         body が overflow:auto でも横方向は出さない。縦スクロールは維持。 */
   html,body{overflow-x:hidden;max-width:100%}
-  /* 6) タップ領域（最低44px）と本文の読みやすさ */
-  .lead{font-size:16px;line-height:1.8}
-  .card p,.kids-points li,.info .val,.info .lbl{font-size:15px}
-  .tb{font-size:13px}
+  /* 6) タップ領域（最低44px） */
   .nav-btn{min-height:44px;display:inline-flex;align-items:center}
   .sb-item{min-height:44px}
   .map-link{min-height:32px}
-  /* 7) ヒーロー画像はスマホで控えめな高さに（縦長画面で巨大化させない） */
-  .page-hero:not(.compact){height:min(46vh,340px);min-height:230px}
+  .btn-outline{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+  /* 7) ヒーロー画像はスマホで控えめな高さに（本文がファーストビューに入る高さ） */
+  .page-hero:not(.compact){height:min(38vh,300px);min-height:200px}
+  /* 8) iPhoneのホームバー・ノッチを避ける（viewport-fit=cover対応） */
+  .page-nav{padding-bottom:calc(10px + env(safe-area-inset-bottom,0px))}
+  .hamburger{top:calc(14px + env(safe-area-inset-top,0px))}
+}
+
+/* ============================================================
+   v18 — スマホ読みやすさ統合ブロック
+   モバイルの文字サイズ階層はここが最終決定（上の旧指定より後勝ち）。
+   本文15〜16px・注釈13〜14px を下回らないのが原則。
+   ============================================================ */
+@media(max-width:960px){
+  .lead{font-size:16px;line-height:1.85}
+  .card p,.kids-points li{font-size:15px}
+  .info .row{grid-template-columns:96px 1fr;gap:10px}
+  .info .lbl{font-size:12px}
+  .info .val{font-size:15px}
+  .tb{font-size:13.5px}
+  .tb th{font-size:12.5px}
+  .tl-body .t{font-size:15px}
+  .tl-body .d{font-size:14px;line-height:1.7}
+  .tl-time{font-size:12px}
+  .small{font-size:13px}
+  .callout .b{font-size:15px}
+  .callout .c{font-size:14px;line-height:1.7}
+  ul.clean li{font-size:14.5px}
+  ul.simple{font-size:14.5px}
+  .tag{font-size:11px}
+  .badge{font-size:10.5px}
+  .transport-key{font-size:12.5px}
+  .day-map-legend li{font-size:14px}
+  .day-map-legend .time{font-size:12px}
+  .attr-card .body h4{font-size:15px}
+  .attr-card .body p{font-size:13px}
+  .food-card h4{font-size:14.5px}
+  .food-card .desc{font-size:12.5px}
+  .res-card .st{font-size:11px}
+  .stat .sub{font-size:12px}
+  .sb-grp-ttl{font-size:11px}
+  .sb-item{font-size:15px}
+  h2{margin:34px 0 14px}
+  /* タイムライン：時刻列を細くして本文の幅を確保 */
+  .timeline{padding-left:22px}
+  .tl-item{grid-template-columns:52px 1fr;gap:10px}
+  .tl-item::before{left:-18px}
+  /* 下部ナビ：ページ名表示がはみ出さないように */
+  #page-counter{max-width:58vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+}
+@media(max-width:600px){
+  /* PC幅向けの文中<br>はスマホでは解除（<br><br>の段落区切りだけ1改行で残す） */
+  .lead br{display:none}
+  .lead br+br{display:inline}
+}
+@media(max-width:480px){
+  /* ラベル＋値は縦積みにして値の幅を確保 */
+  .info .row{grid-template-columns:1fr;gap:2px;padding:9px 0}
+  .info .lbl{padding-top:0}
 }
 
 </style>
@@ -893,20 +950,20 @@ img{max-width:100%;height:auto}
   <div class="sb-head">
     <div class="brand">森下家<span class="acc"> / </span>2026</div>
     <div class="sub">USA World Cup Adventure<br>（アメリカW杯旅行）</div>
-    <span class="ver">VERSION 17.0</span>
+    <span class="ver">VERSION 18.0</span>
   </div>
   <nav class="sb-menu">
     <div class="sb-grp">
       <a class="sb-item sb-kids" href="#kids" data-target="kids"><span class="n">👧👦</span>こども ページ</a>
     </div>
     <div class="sb-grp">
-      <div class="sb-grp-ttl">Overview（全体）</div>
+      <div class="sb-grp-ttl">全体</div>
       <a class="sb-item" href="#cover" data-target="cover"><span class="n">01</span>表紙</a>
       <a class="sb-item" href="#overview" data-target="overview"><span class="n">02</span>旅の概要</a>
       <a class="sb-item" href="#schedule" data-target="schedule"><span class="n">03</span>全日程一覧</a>
     </div>
     <div class="sb-grp">
-      <div class="sb-grp-ttl">Daily（日別）</div>
+      <div class="sb-grp-ttl">日別の予定</div>
       <a class="sb-item" href="#d10" data-target="d10"><span class="n">6/10</span>出発前日 🛏️</a>
       <a class="sb-item" href="#d11" data-target="d11"><span class="n">6/11</span>NY到着</a>
       <a class="sb-item" href="#d12" data-target="d12"><span class="n">6/12</span>De Niro DAY</a>
@@ -920,7 +977,7 @@ img{max-width:100%;height:auto}
       <a class="sb-item" href="#d20" data-target="d20"><span class="n">6/20</span>帰宅 🏠</a>
     </div>
     <div class="sb-grp">
-      <div class="sb-grp-ttl">Reference（情報）</div>
+      <div class="sb-grp-ttl">情報・予約</div>
       <a class="sb-item" href="#budget" data-target="budget"><span class="n">13</span>費用総額</a>
       <a class="sb-item" href="#uber" data-target="uber"><span class="n">14</span>Uber料金詳細</a>
       <a class="sb-item" href="#reservations" data-target="reservations"><span class="n">15</span>予約管理</a>
@@ -934,7 +991,7 @@ img{max-width:100%;height:auto}
 <!-- ============ 01. COVER ============ -->
 <section id="cover" class="page cover">
   <div class="cover-inner">
-    <div class="subtitle">Morishita Family · Summer 2026 · アメリカ10日間</div>
+    <div class="subtitle">森下家 · 2026年夏 · アメリカ10日間</div>
     <h1>
       <span class="sm">FIFA World Cup 2026</span>
       アメリカ大冒険
@@ -945,19 +1002,19 @@ img{max-width:100%;height:auto}
     </p>
     <div class="cover-meta">
       <div class="it">
-        <div class="lbl">DATES（日程）</div>
+        <div class="lbl">📅 日程</div>
         <div class="val">2026.6.11 — 6.20</div>
       </div>
       <div class="it">
-        <div class="lbl">PARTY（家族）</div>
+        <div class="lbl">👨‍👩‍👧‍👦 家族</div>
         <div class="val">大人2 / 子供2</div>
       </div>
       <div class="it">
-        <div class="lbl">ROUTE（経路）</div>
+        <div class="lbl">🗺️ 経路</div>
         <div class="val">NY → DAL → LAX</div>
       </div>
       <div class="it">
-        <div class="lbl">THE MATCH（試合）</div>
+        <div class="lbl">⚽ 試合</div>
         <div class="val">🇯🇵 vs 🇳🇱 · 6/14</div>
       </div>
     </div>
@@ -968,9 +1025,9 @@ img{max-width:100%;height:auto}
 <section id="overview" class="page">
   <div class="page-hero" style="background-image:linear-gradient(0deg,rgba(15,44,94,.35) 0%,rgba(15,44,94,.05) 55%,rgba(15,44,94,.5) 100%),url('images/airplane.jpg')">
     <div class="page-hero-inner">
-      <div class="page-hero-kicker">02 · OVERVIEW · 旅の概要</div>
+      <div class="page-hero-kicker">② 旅の概要</div>
       <h1 class="page-hero-title">旅の概要</h1>
-      <p class="page-hero-sub">Travelers &amp; Highlights · 旅行者とハイライト</p>
+      <p class="page-hero-sub">旅行者とハイライト</p>
     </div>
   </div>
 
@@ -980,7 +1037,7 @@ img{max-width:100%;height:auto}
     子供たちの一生の思い出になる夏。
   </p>
 
-  <h2>旅行者 / Travelers</h2>
+  <h2>👨‍👩‍👧‍👦 旅行者</h2>
   <table class="tb">
     <tr><th>名前</th><th>役</th><th>ひとこと</th></tr>
     <tr><td><ruby>森下 恭祐<rt>もりした きょうすけ</rt></ruby></td><td>父</td><td>YouMeEra代表・映画マニア・運転担当</td></tr>
@@ -989,7 +1046,7 @@ img{max-width:100%;height:auto}
     <tr><td>森下 みな実</td><td><ruby>長女<rt>ちょうじょ</rt></ruby>（7歳）</td><td>ディズニー担当・ウォータースライダー部</td></tr>
   </table>
 
-  <h2>主要確定情報 / Confirmations</h2>
+  <h2>✅ 主要確定情報</h2>
   <div class="stat-grid">
     <div class="stat">
       <div class="lbl">W杯チケット（FIFA WORLD CUP TICKET）</div>
@@ -1018,13 +1075,13 @@ img{max-width:100%;height:auto}
 <section id="schedule" class="page">
   <div class="page-hero" style="background-image:linear-gradient(0deg,rgba(15,44,94,.35) 0%,rgba(15,44,94,.05) 55%,rgba(15,44,94,.5) 100%),url('images/times-square.jpg')">
     <div class="page-hero-inner">
-      <div class="page-hero-kicker">03 · SCHEDULE · 全日程</div>
+      <div class="page-hero-kicker">③ 全日程</div>
       <h1 class="page-hero-title">全日程一覧</h1>
-      <p class="page-hero-sub">10 Days Itinerary · 10日間のすべて</p>
+      <p class="page-hero-sub">10日間のすべて</p>
     </div>
   </div>
 
-  <h2>日程表 / Itinerary</h2>
+  <h2>📅 日程表</h2>
   <table class="tb">
     <tr><th>日付</th><th>都市</th><th>メインイベント</th><th>宿泊</th></tr>
     <tr><td>6/10 (水)</td><td>自宅（熊取町）</td><td>🛏️ 出発前日・書類確認・荷物最終チェック・22時就寝</td><td>自宅</td></tr>
@@ -1045,9 +1102,9 @@ img{max-width:100%;height:auto}
 <section id="d10" class="page">
   <div class="page-hero" style="background-image:linear-gradient(0deg,rgba(15,44,94,.35) 0%,rgba(15,44,94,.05) 55%,rgba(15,44,94,.5) 100%),url('images/airplane.jpg')">
     <div class="page-hero-inner">
-      <div class="page-hero-kicker">DAY 00 · 6/10 WED · 出発前日</div>
+      <div class="page-hero-kicker">出発前日 ｜ 6/10（水）</div>
       <h1 class="page-hero-title">🛏️ 出発前日 · 万全の体制で備える</h1>
-      <p class="page-hero-sub">Pre-Departure · 持ち物確認・早寝で時差ボケに備える</p>
+      <p class="page-hero-sub">持ち物を確認して、早寝で時差ボケに備える</p>
     </div>
   </div>
 
@@ -1059,7 +1116,7 @@ img{max-width:100%;height:auto}
     明日5時起床、6時出発で<ruby>関西空港<rt>かんさいくうこう</rt></ruby>へ。
   </p>
 
-  <h2>✅ 出発前日のタスク / Pre-Departure Tasks</h2>
+  <h2>✅ 出発前日のタスク</h2>
 
   <h4>📋 書類最終確認（重要）</h4>
   <div class="card">
@@ -1110,7 +1167,7 @@ img{max-width:100%;height:auto}
     </ul>
   </div>
 
-  <h2>タイムライン / Timeline</h2>
+  <h2>🕐 この日の予定</h2>
   <div class="timeline">
     <div class="tl-item"><div class="tl-time">19:00</div><div class="tl-body"><div class="t">🍳 夕食（自宅・あっさり）</div><div class="d">軽めに・消化に良いもの</div></div></div>
     <div class="tl-item"><div class="tl-time">20:00</div><div class="tl-body"><div class="t">🛁 入浴・リラックス</div></div></div>
@@ -1147,9 +1204,9 @@ img{max-width:100%;height:auto}
 <section id="d11" class="page">
   <div class="page-hero" style="background-image:linear-gradient(0deg,rgba(15,44,94,.35) 0%,rgba(15,44,94,.05) 55%,rgba(15,44,94,.5) 100%),url('images/central-park.jpg')">
     <div class="page-hero-inner">
-      <div class="page-hero-kicker">DAY 01 · 6/11 THU · 1日目</div>
+      <div class="page-hero-kicker">1日目 ｜ 6/11（木）</div>
       <h1 class="page-hero-title">NY到着 · 映画ファンの巡礼が始まる</h1>
-      <p class="page-hero-sub">Arrival in NYC · ダコタハウス・ストロベリーフィールズへ</p>
+      <p class="page-hero-sub">NYに到着 · ダコタハウス・ストロベリーフィールズへ</p>
     </div>
   </div>
 
@@ -1161,7 +1218,7 @@ img{max-width:100%;height:auto}
     Dakota House の正面と、Strawberry Fields の IMAGINE モザイクで、この旅を始めよう。
   </p>
 
-  <h2>フライト / Flight</h2>
+  <h2>✈️ フライト</h2>
   <table class="tb">
     <tr><th>便名</th><th>区間</th><th>時刻</th><th>座席</th><th>時差</th><th>実質飛行時間</th></tr>
     <tr><td>NH094</td><td><ruby>関空<rt>かんくう</rt></ruby> (KIX) → <ruby>羽田<rt>はねだ</rt></ruby> (HND)</td><td>07:00 → 08:10</td><td>18J/18G/18H/18K</td><td>なし（JST→JST）</td><td class="w-bold">1時間10分</td></tr>
@@ -1173,7 +1230,7 @@ img{max-width:100%;height:auto}
     <div class="row"><div class="lbl">⚠️ 注意</div><div class="val c-acc">機中の長旅・睡眠戦略重要（NH110）</div></div>
   </div>
 
-  <h2>ホテル / Hotel</h2>
+  <h2>🏨 ホテル</h2>
   <div class="card gold">
     <div class="info">
       <div class="row"><div class="lbl">ホテル名</div><div class="val">New York Marriott Marquis</div></div>
@@ -1240,7 +1297,7 @@ img{max-width:100%;height:auto}
     </div>
   </div>
 
-  <h2>タイムライン / Timeline <span class="en-jp">（1日の流れ）</span></h2>
+  <h2>🕐 この日の予定</h2>
   <div class="timeline">
     <div class="tl-item">
       <div class="tl-time">11:00</div>
@@ -1321,7 +1378,7 @@ img{max-width:100%;height:auto}
     </div>
   </div>
 
-  <h2>ディナー4シナリオ / Dinner Scenarios <span class="en-jp">（体調別プラン）</span></h2>
+  <h2>🍽️ ディナー4シナリオ（体調別）</h2>
   <div class="grid grid-2">
     <div class="card accent">
       <h3>🏆 A. Toribro Ramen（徒歩）</h3>
@@ -1355,7 +1412,7 @@ img{max-width:100%;height:auto}
     </div>
   </div>
 
-  <h2>Uber費用まとめ / Uber Cost <span class="en-jp">（Uber料金）</span></h2>
+  <h2>🚕 Uber費用まとめ</h2>
   <div class="card success">
     <table class="tb">
       <tr><th>区間</th><th>料金（Uber XL）</th></tr>
@@ -1413,9 +1470,9 @@ img{max-width:100%;height:auto}
 <section id="d12" class="page">
   <div class="page-hero" style="background-image:linear-gradient(0deg,rgba(15,44,94,.35) 0%,rgba(15,44,94,.05) 55%,rgba(15,44,94,.5) 100%),url('images/statue-of-liberty.jpg')">
     <div class="page-hero-inner">
-      <div class="page-hero-kicker">DAY 02 · 6/12 FRI · 2日目</div>
+      <div class="page-hero-kicker">2日目 ｜ 6/12（金）</div>
       <h1 class="page-hero-title">De Niro DAY · 映画愛が炸裂する一日</h1>
-      <p class="page-hero-sub">De Niro Day in NYC · 自由の女神・Locanda Verde・DUMBO</p>
+      <p class="page-hero-sub">デ・ニーロ三昧の一日 · 自由の女神・Locanda Verde・DUMBO</p>
     </div>
   </div>
 
@@ -1429,7 +1486,7 @@ img{max-width:100%;height:auto}
     映画好きの<ruby>恭祐<rt>きょうすけ</rt></ruby>さんにとって、忘れられない一日になる。
   </p>
 
-  <h2>夜便フライト / Evening Flight</h2>
+  <h2>✈️ 夜便フライト</h2>
   <table class="tb">
     <tr><th>便名</th><th>区間</th><th>時刻</th><th>座席</th><th>時差</th><th>実質飛行時間</th></tr>
     <tr><td>UA1331</td><td>EWR (NY) → DFW (Dallas)</td><td>21:09 EDT → 23:59 CDT</td><td>34A/34B/36D/36E</td><td class="c-acc">-1時間（EDT→CDT）</td><td class="w-bold">3時間50分</td></tr>
@@ -1534,7 +1591,7 @@ img{max-width:100%;height:auto}
     </div>
   </div>
 
-  <h2>タイムライン / Timeline <span class="en-jp">（完全スケジュール）</span></h2>
+  <h2>🕐 この日の予定</h2>
   <div class="timeline">
     <div class="tl-item"><div class="tl-time">07:00</div><div class="tl-body"><div class="t">🥯 恭祐 単独ミッション：Best Bagel &amp; Coffee 調達 <a class="map-link" href="https://maps.google.com/?q=Best+Bagel+Coffee+225+W+35th+St+New+York" target="_blank" rel="noopener">📍 Maps</a></div><div class="d">225 W 35th St <a class="map-link" href="https://maps.google.com/?q=Best+Bagel+Coffee+225+W+35th+St+New+York" target="_blank" rel="noopener">📍 Maps</a> · 徒歩8分・テイクアウトでホテル戻り・$52（4人分）</div></div></div>
     <div class="tl-item"><div class="tl-time">07:30</div><div class="tl-body"><div class="t">🏨 部屋で家族朝食</div><div class="d">Everything Bagel × Lox、Avocado Lime クリームチーズ推奨</div></div></div>
@@ -1560,7 +1617,7 @@ img{max-width:100%;height:auto}
     <div class="tl-item"><div class="tl-time">23:59</div><div class="tl-body"><div class="t">🛬 DFW 到着（CT時間） <a class="map-link" href="https://maps.google.com/?q=Dallas+Fort+Worth+Airport" target="_blank" rel="noopener">📍 Maps</a></div><div class="d">🚕 Uber → Courtyard Arlington（$30-50・25分）</div></div></div>
   </div>
 
-  <h2>Locanda Verde 詳細 / Reservation Details</h2>
+  <h2>Locanda Verde 詳細</h2>
   <div class="card gold">
     <div class="grid grid-2">
       <div>
@@ -1580,7 +1637,7 @@ img{max-width:100%;height:auto}
         </div>
       </div>
     </div>
-    <h4>推奨メニュー / Menu</h4>
+    <h4>🍽️ 推奨メニュー</h4>
     <div class="food-grid">
       <figure class="food-card"><img src="images/food-ricotta.jpg" alt="Sheep's Milk Ricotta" loading="lazy"><div class="body"><h4>🧀 Famous Sheep's Milk Ricotta</h4><p class="desc">羊乳リコッタの前菜 · $24</p></div></figure>
       <figure class="food-card"><img src="images/food-cacio-pepe.jpg" alt="Cacio e Pepe" loading="lazy"><div class="body"><h4>🍝 Cacio e Pepe</h4><p class="desc">ローマ伝統のペコリーノチーズ+黒胡椒 · $28</p></div></figure>
@@ -1600,7 +1657,7 @@ img{max-width:100%;height:auto}
     </div>
   </div>
 
-  <h2>🗽 自由の女神 Crown Access / Statue of Liberty</h2>
+  <h2>🗽 自由の女神（クラウン入場）</h2>
   <div class="card accent">
     <div class="info">
       <div class="row"><div class="lbl">確認番号</div><div class="val"><code>72348187</code></div></div>
@@ -1610,7 +1667,7 @@ img{max-width:100%;height:auto}
     <div class="btn-row"><a href="https://www.nps.gov/stli/planyourvisit/crown-access.htm" target="_blank" rel="noopener" class="btn-outline">🗽 Crown Access 公式</a></div>
   </div>
 
-  <h2>DUMBO 映画聖地 / Film Location</h2>
+  <h2>🎬 DUMBO 映画聖地</h2>
   <div class="card accent">
     <div class="info">
       <div class="row"><div class="lbl">住所</div><div class="val">39-21 Washington St, Brooklyn, NY 11201 <a class="map-link" href="https://maps.google.com/?q=Manhattan+Bridge+View+DUMBO+Brooklyn+NY" target="_blank" rel="noopener">📍 Maps</a></div></div>
@@ -1622,7 +1679,7 @@ img{max-width:100%;height:auto}
     </div>
   </div>
 
-  <h2>Uber費用まとめ / Uber Cost <span class="en-jp">（6/12 総額）</span></h2>
+  <h2>🚕 Uber費用まとめ</h2>
   <table class="tb">
     <tr><th>区間</th><th>料金（Uber XL）</th></tr>
     <tr><td>ホテル → Battery Park</td><td>$35-50</td></tr>
@@ -1682,9 +1739,9 @@ img{max-width:100%;height:auto}
 <section id="d13" class="page">
   <div class="page-hero" style="background-image:linear-gradient(0deg,rgba(15,44,94,.35) 0%,rgba(15,44,94,.05) 55%,rgba(15,44,94,.5) 100%),url('images/six-flags-over-texas.jpg')">
     <div class="page-hero-inner">
-      <div class="page-hero-kicker">DAY 03 · 6/13 SAT · 3日目</div>
+      <div class="page-hero-kicker">3日目 ｜ 6/13（土）</div>
       <h1 class="page-hero-title">Dallas · ダブルパーク制覇DAY</h1>
-      <p class="page-hero-sub">Six Flags + Hurricane Harbor · 朝から晩までアドレナリン</p>
+      <p class="page-hero-sub">2大パーク制覇 · 朝から晩までアドレナリン全開</p>
     </div>
   </div>
 
@@ -1787,7 +1844,7 @@ img{max-width:100%;height:auto}
     <div class="card"><h4>⚡ Lightning Lagoon（幼児向け浅瀬）</h4><p class="small">小さな子向けの浅瀬プール。噴水・小型スライダー多数。休憩がてらに。水深1ft以下。</p></div>
   </div>
 
-  <h2>💡 Six Flags / Hurricane Harbor 攻略</h2>
+  <h2>💡 2大パーク攻略（Six Flags ／ Hurricane Harbor）</h2>
   <div class="grid grid-2">
     <div class="card accent"><h4>⏰ Six Flags 朝一番</h4><p class="small">10:00 入園 → まず New Texas Giant・Titan へ直行（朝一番なら待ち時間 30 分以内）。午前中に絶叫系を集中、午後は子供向け。Tormenta が稼働していれば追加で。</p></div>
     <div class="card"><h4>🎟️ THE FLASH Pass</h4><p class="small">優先パス（別売り、1人 $50-100）。New Texas Giant、Titan の混雑時短に。5/15 にcombo券と同時購入推奨。</p></div>
@@ -1798,7 +1855,7 @@ img{max-width:100%;height:auto}
     <div class="card"><h4>⚡ Texas Giant の写真</h4><p class="small">最高潮ポイントで自動撮影あり。記念写真 $25-30。家族の表情が最高。</p></div>
   </div>
 
-  <h2>タイムライン / Timeline</h2>
+  <h2>🕐 この日の予定</h2>
   <div class="timeline">
     <div class="tl-item"><div class="tl-time">08:30</div><div class="tl-body"><div class="t">起床・身支度（水着を下に着る）</div><div class="d">サンスクリーンSPF50・帽子・水筒</div></div></div>
     <div class="tl-item"><div class="tl-time">09:00</div><div class="tl-body"><div class="t">🍳 ホテル朝食</div><div class="d">朝はしっかり食べる・パークでエネルギー消費する</div></div></div>
@@ -1832,7 +1889,7 @@ img{max-width:100%;height:auto}
     </div>
   </div>
 
-  <h2>Pappadeaux 必食メニュー / Must-Order</h2>
+  <h2>🍤 Pappadeaux 必食メニュー</h2>
   <div class="food-grid">
     <figure class="food-card"><img src="images/food-gumbo.jpg" alt="Louisiana Gumbo" loading="lazy"><div class="body"><h4>🍲 Louisiana Gumbo</h4><p class="desc">ルイジアナ・ガンボ（シーフード煮込み）</p></div></figure>
     <figure class="food-card"><img src="images/seafood.jpg" alt="Pappadeaux Deluxe Platter" loading="lazy"><div class="body"><h4>🦐 Deluxe Platter</h4><p class="desc">海の幸盛り合わせ前菜</p></div></figure>
@@ -1845,7 +1902,7 @@ img{max-width:100%;height:auto}
   </div>
   <div class="btn-row"><a href="https://pappadeaux.com/reservations/" target="_blank" rel="noopener" class="btn-outline">🦐 Pappadeaux 予約</a></div>
 
-  <h2>Uber費用まとめ / Uber Cost</h2>
+  <h2>🚕 Uber費用まとめ</h2>
   <div class="card success">
     <p><span class="c-acc w-bold">6/13 全期間 Uber = $0</span>（全て徒歩圏内・Entertainment District 中心部）</p>
   </div>
@@ -1899,9 +1956,9 @@ img{max-width:100%;height:auto}
 <section id="d14" class="page">
   <div class="page-hero" style="background-image:linear-gradient(0deg,rgba(15,44,94,.35) 0%,rgba(15,44,94,.05) 55%,rgba(15,44,94,.5) 100%),url('images/at-t-stadium.jpg')">
     <div class="page-hero-inner">
-      <div class="page-hero-kicker">DAY 04 · 6/14 SUN · 4日目</div>
+      <div class="page-hero-kicker">4日目 ｜ 6/14（日）</div>
       <h1 class="page-hero-title">⚽ 人生で一度のキックオフ</h1>
-      <p class="page-hero-sub">Japan vs Netherlands · 🇯🇵日本 vs 🇳🇱オランダ @ AT&amp;T Stadium</p>
+      <p class="page-hero-sub">🇯🇵日本 vs 🇳🇱オランダ ＠ AT&amp;T スタジアム</p>
     </div>
   </div>
 
@@ -1924,11 +1981,11 @@ img{max-width:100%;height:auto}
     <figcaption>🇯🇵 SAMURAI BLUE 注目の4選手　🆚　🇳🇱 オランダ</figcaption>
   </figure>
 
-  <h2>試合情報 / Match Details</h2>
+  <h2>⚽ 試合情報</h2>
   <div class="card accent">
     <div class="grid grid-2">
       <div>
-        <h4>Match Info（試合）</h4>
+        <h4>⚽ 試合データ</h4>
         <div class="info">
           <div class="row"><div class="lbl">対戦</div><div class="val w-bold">🇳🇱 オランダ vs 🇯🇵 日本</div></div>
           <div class="row"><div class="lbl">試合</div><div class="val">Match 11 · グループF 初戦</div></div>
@@ -1940,7 +1997,7 @@ img{max-width:100%;height:auto}
         </div>
       </div>
       <div>
-        <h4>🎫 Ticket（チケット詳細）</h4>
+        <h4>🎫 チケット詳細</h4>
         <div class="info">
           <div class="row"><div class="lbl">座席</div><div class="val w-bold c-acc">Block 440 / Row 19</div></div>
           <div class="row"><div class="lbl">Seat番号</div><div class="val w-bold c-acc">Seat 7・8・9・10</div></div>
@@ -1954,7 +2011,7 @@ img{max-width:100%;height:auto}
     </div>
   </div>
 
-  <h2>⭐ 両チーム注目選手 / Players to Watch</h2>
+  <h2>⭐ 両チーム注目選手</h2>
   <p class="small" style="margin:-.4em 0 14px">2026年5月27日に両国とも背番号・26名を発表済み。</p>
   <div class="grid grid-2">
     <div class="card accent">
@@ -1987,7 +2044,7 @@ img{max-width:100%;height:auto}
     </div>
   </div>
 
-  <h2>⚔️ 戦術の見どころ / Tactical Preview</h2>
+  <h2>⚔️ 戦術の見どころ</h2>
   <p class="small" style="margin:-.4em 0 14px">観戦をより楽しむための予習。断定ではなく「専門家はこう見ている」という視点です。複数の予想で多い日本の布陣は <strong>3-4-2-1</strong>。</p>
   <div class="grid grid-2">
     <div class="card accent">
@@ -2012,7 +2069,7 @@ img{max-width:100%;height:auto}
     </div>
   </div>
 
-  <h2>🏟️ 座席位置 / Stadium Seat Map</h2>
+  <h2>🏟️ 座席位置</h2>
   <div class="seat-map">
     <svg viewBox="0 0 400 400" class="stadium-svg" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AT&T Stadium seat map with Block 440 highlighted">
       <defs>
@@ -2087,7 +2144,7 @@ img{max-width:100%;height:auto}
     </div>
   </div>
 
-  <h2>試合日タイムライン / Match Day Timeline</h2>
+  <h2>🕐 試合日の予定</h2>
   <div class="timeline">
     <div class="tl-item"><div class="tl-time">08:30</div><div class="tl-body"><div class="t">ゆっくり起床</div><div class="d">W杯本番・前日のSix Flags+Hurricane Harborの疲労を考慮。十分な睡眠が最高のパフォーマンス。9時間睡眠を確保。</div></div></div>
     <div class="tl-item"><div class="tl-time">09:00</div><div class="tl-body"><div class="t">🍳 ホテル朝食</div><div class="d">しっかり食べる。試合中3時間動けないので腹ごしらえ重要。</div></div></div>
@@ -2106,7 +2163,7 @@ img{max-width:100%;height:auto}
     <div class="tl-item"><div class="tl-time">22:00</div><div class="tl-body"><div class="t">😴 就寝（翌朝 DAL 早出）</div></div></div>
   </div>
 
-  <h2>持ち込みルール / Stadium Rules</h2>
+  <h2>🚫 持ち込みルール</h2>
   <div class="grid grid-2">
     <div class="card danger">
       <h4 class="c-ng">❌ 禁止物（Prohibited Items）</h4>
@@ -2139,7 +2196,7 @@ img{max-width:100%;height:auto}
     </div>
   </div>
 
-  <h2>Uber費用まとめ / Uber Cost</h2>
+  <h2>🚕 Uber費用まとめ</h2>
   <div class="card success">
     <p><span class="c-acc w-bold">6/14 Uber = $0</span>（スタジアム徒歩25分・試合後は混雑で徒歩が最速）</p>
   </div>
@@ -2192,9 +2249,9 @@ img{max-width:100%;height:auto}
 <section id="d15" class="page">
 <div class="page-hero" style="background-image:linear-gradient(0deg,rgba(15,44,94,.35) 0%,rgba(15,44,94,.05) 55%,rgba(15,44,94,.5) 100%),url('images/dca-entrance.jpg')">
   <div class="page-hero-inner">
-    <div class="page-hero-kicker">DAY 05 · 6/15 MON · 5日目</div>
+    <div class="page-hero-kicker">5日目 ｜ 6/15（月）</div>
     <h1 class="page-hero-title">🎡 カリフォルニア・アドベンチャー（初日）</h1>
-    <p class="page-hero-sub">Disney California Adventure · LA到着後、午後からパーク</p>
+    <p class="page-hero-sub">ディズニー・カリフォルニア・アドベンチャー · LA到着後、午後からパークへ</p>
   </div>
 </div>
 
@@ -2207,7 +2264,7 @@ img{max-width:100%;height:auto}
   初日は余裕を持って、慣らしのような一日に。
 </p>
 
-<h2>✈️ フライト / Flight</h2>
+<h2>✈️ フライト</h2>
 <div class="card accent">
   <div class="info">
     <div class="row"><div class="lbl">予約番号</div><div class="val"><code>CF846Y</code>（Southwest Airlines）</div></div>
@@ -2234,7 +2291,7 @@ img{max-width:100%;height:auto}
   </div>
 </div>
 
-<h2>🎫 本日のチケット情報 / Today's Ticket</h2>
+<h2>🎫 本日のチケット情報</h2>
 <div class="card gold">
   <div class="info">
     <div class="row"><div class="lbl">予約確認番号</div><div class="val w-bold c-acc"><code>DD835006708173889536</code></div></div>
@@ -2282,7 +2339,7 @@ img{max-width:100%;height:auto}
   </div>
 </div>
 
-<h2>タイムライン / Timeline</h2>
+<h2>🕐 この日の予定</h2>
 <div class="timeline">
   <div class="tl-item"><div class="tl-time">06:00</div><div class="tl-body"><div class="t">起床</div></div></div>
   <div class="tl-item"><div class="tl-time">07:30</div><div class="tl-body"><div class="t">🚕 Uber → DAL 空港</div><div class="d">$35-50・30分</div></div></div>
@@ -2407,7 +2464,7 @@ img{max-width:100%;height:auto}
 </div>
 
 
-<h2>Uber費用まとめ / Uber Cost</h2>
+<h2>🚕 Uber費用まとめ</h2>
 <table class="tb">
   <tr><th>区間</th><th>料金</th></tr>
   <tr><td>ホテル → DAL 空港</td><td>$35-50</td></tr>
@@ -2428,9 +2485,9 @@ img{max-width:100%;height:auto}
 <section id="d16" class="page">
 <div class="page-hero" style="background-image:linear-gradient(0deg,rgba(15,44,94,.35) 0%,rgba(15,44,94,.05) 55%,rgba(15,44,94,.5) 100%),url('images/disneyland-castle.jpg')">
   <div class="page-hero-inner">
-    <div class="page-hero-kicker">DAY 06 · 6/16 TUE · 6日目</div>
+    <div class="page-hero-kicker">6日目 ｜ 6/16（火）</div>
     <h1 class="page-hero-title">🏰 Disneyland Park · 丸一日</h1>
-    <p class="page-hero-sub">Sleeping Beauty Castle · Star Wars: Rise of the Resistance · 花火</p>
+    <p class="page-hero-sub">眠れる森の美女の城・スターウォーズ・夜の花火</p>
   </div>
 </div>
 
@@ -2443,7 +2500,7 @@ img{max-width:100%;height:auto}
   Lightning Lane Multi Pass を駆使して、朝から花火まで丸一日満喫しよう。
 </p>
 
-<h2>🎫 本日のチケット情報 / Today's Ticket</h2>
+<h2>🎫 本日のチケット情報</h2>
 <div class="card gold">
   <div class="info">
     <div class="row"><div class="lbl">予約確認番号</div><div class="val w-bold c-acc"><code>DD835006708173889536</code></div></div>
@@ -2636,7 +2693,7 @@ img{max-width:100%;height:auto}
   </div>
 </div>
 
-<h2>タイムライン / Timeline</h2>
+<h2>🕐 この日の予定</h2>
 <div class="timeline">
   <div class="tl-item"><div class="tl-time">07:00</div><div class="tl-body"><div class="t">起床・朝食</div></div></div>
   <div class="tl-item"><div class="tl-time">08:15</div><div class="tl-body"><div class="t">🚶 パーク入口で並ぶ（開園30分前）</div></div></div>
@@ -2765,7 +2822,7 @@ img{max-width:100%;height:auto}
   </div>
 </div>
 
-<h2>Uber費用まとめ / Uber Cost</h2>
+<h2>🚕 Uber費用まとめ</h2>
 <div class="card success">
   <p><span class="c-acc w-bold">6/16 Uber = $0</span>（ホテルからパーク徒歩5分）</p>
 </div>
@@ -2775,26 +2832,26 @@ img{max-width:100%;height:auto}
 <section id="d17" class="page">
 <div class="page-hero" style="background-image:linear-gradient(0deg,rgba(15,44,94,.35) 0%,rgba(15,44,94,.05) 55%,rgba(15,44,94,.5) 100%),url('images/dodger-stadium.jpg')">
   <div class="page-hero-inner">
-    <div class="page-hero-kicker">DAY 07 · 6/17 WED · 7日目</div>
-    <h1 class="page-hero-title">⚾ ドジャース観戦DAY · Anaheim → Marina → Dodger Stadium</h1>
-    <p class="page-hero-sub">Los Angeles Dodgers vs Tampa Bay Rays @ UNIQLO Field at Dodger Stadium</p>
+    <div class="page-hero-kicker">7日目 ｜ 6/17（水）</div>
+    <h1 class="page-hero-title">⚾ ドジャース観戦DAY</h1>
+    <p class="page-hero-sub">⚾ ドジャース vs レイズ ＠ ドジャースタジアム</p>
   </div>
 </div>
 
 <p class="lead">
   ジャージgiveaway特典付きの特別な日。<br><br>
   朝にCourtyardをチェックアウトして、Marina del Reyのマリオットへ荷物を預け、<br>
-  そのまま Dodger Stadium へ。12:10キックオフのデーゲーム、Tampa Bay Rays戦。<br>
+  そのまま Dodger Stadium へ。12:10開始のデーゲーム、Tampa Bay Rays戦。<br>
   Section 141LG・Row H・3塁ベース上の屋根下席で、家族4人で大谷翔平のメジャー観戦。<br>
   試合後はマリーナへ戻ってゆったりディナー。
 </p>
 
-<h2>⚾ 試合情報 / Game Info</h2>
+<h2>⚾ 試合情報</h2>
 <div class="card accent">
   <div class="info">
     <div class="row"><div class="lbl">対戦</div><div class="val w-bold">🇺🇸 Los Angeles Dodgers vs Tampa Bay Rays</div></div>
     <div class="row"><div class="lbl">試合</div><div class="val">MLB Regular Season Game</div></div>
-    <div class="row"><div class="lbl">キックオフ</div><div class="val c-acc w-bold">12:10 PM PT（デーゲーム）</div></div>
+    <div class="row"><div class="lbl">試合開始</div><div class="val c-acc w-bold">12:10 PM PT（デーゲーム）</div></div>
     <div class="row"><div class="lbl">開門</div><div class="val">10:30 AM（ジャージgiveaway先着配布）</div></div>
     <div class="row"><div class="lbl">会場</div><div class="val">UNIQLO Field at Dodger Stadium</div></div>
     <div class="row"><div class="lbl">住所</div><div class="val">1000 Vin Scully Ave, Los Angeles, CA 90012 <a class="map-link" href="https://maps.google.com/?q=Dodger+Stadium+1000+Vin+Scully+Ave+Los+Angeles" target="_blank" rel="noopener">📍 Maps</a></div></div>
@@ -2802,7 +2859,7 @@ img{max-width:100%;height:auto}
   </div>
 </div>
 
-<h2>🎫 Ticket / チケット詳細</h2>
+<h2>🎫 チケット詳細</h2>
 <div class="card">
   <div class="info">
     <div class="row"><div class="lbl">座席</div><div class="val w-bold">Section 141LG, Row H</div></div>
@@ -2816,7 +2873,7 @@ img{max-width:100%;height:auto}
   </div>
 </div>
 
-<h2>🏟️ 座席位置説明 / Seat Position</h2>
+<h2>🏟️ 座席位置説明</h2>
 <div class="grid grid-3">
   <div class="card accent"><h4>📐 角度</h4><p class="small">Section 141LG = 3塁ベースのほぼ真上、本塁から斜め見下ろしの理想角度</p></div>
   <div class="card"><h4>☂️ 屋根</h4><p class="small">Loge Levelの屋根の張り出しで完全に日陰。直射日光なし</p></div>
@@ -2829,7 +2886,7 @@ img{max-width:100%;height:auto}
   <p class="small">10:30開門と同時に入場で確実にゲット。W杯観戦帰りの森下家にぴったりの特典。</p>
 </div>
 
-<h2>🏨 移動・宿泊 / Move &amp; Stay</h2>
+<h2>🏨 移動・宿泊</h2>
 <div class="card">
   <p><strong>Courtyard Anaheim 朝チェックアウト → Marriott Marina del Rey 6/17-19 2泊</strong></p>
   <div class="info">
@@ -2858,7 +2915,7 @@ img{max-width:100%;height:auto}
   </div>
 </div>
 
-<h2>タイムライン / Timeline</h2>
+<h2>🕐 この日の予定</h2>
 <div class="timeline">
   <div class="tl-item"><div class="tl-time">07:30</div><div class="tl-body"><div class="t">起床・パッキング</div></div></div>
   <div class="tl-item"><div class="tl-time">08:00</div><div class="tl-body"><div class="t">🍳 朝食</div></div></div>
@@ -2886,7 +2943,7 @@ img{max-width:100%;height:auto}
   <figure class="place-card"><img src="images/roki-sasaki.jpg" alt="Roki Sasaki" loading="lazy"><figcaption><strong><ruby>佐々木朗希<rt>ささき ろうき</rt></ruby> #11</strong><span class="jp">Dodgers 若き剛腕</span><span class="tag">🇯🇵 登板確率17%</span></figcaption></figure>
 </div>
 
-<h2>Uber費用まとめ / Uber Cost</h2>
+<h2>🚕 Uber費用まとめ</h2>
 <table class="tb">
   <tr><th>区間</th><th>料金</th></tr>
   <tr><td>Anaheim → Marina del Rey（朝・荷物あり）</td><td>$120-160</td></tr>
@@ -2895,7 +2952,7 @@ img{max-width:100%;height:auto}
   <tr><td class="w-bold">6/17 合計</td><td class="c-acc w-bold">$200-280</td></tr>
 </table>
 
-<h2>☀️ 当日の気候・服装 / Weather &amp; Outfit</h2>
+<h2>☀️ 当日の気候・服装</h2>
 <div class="card">
   <ul>
     <li>LA 6月中旬・最高24-26°C・湿度低め・降水確率&lt;5%</li>
@@ -2921,7 +2978,7 @@ img{max-width:100%;height:auto}
   </ul>
 </div>
 
-<h2>🇯🇵 日本人選手出場可能性 / Japanese Players</h2>
+<h2>🇯🇵 日本人選手の出場可能性</h2>
 
 <h4>⚾ <ruby>大谷翔平<rt>おおたに しょうへい</rt></ruby>（Shohei Ohtani）#17</h4>
 <div class="card accent">
@@ -2952,7 +3009,7 @@ img{max-width:100%;height:auto}
   </ul>
 </div>
 
-<h2>💡 豆知識・注意点 / Tips &amp; Notes</h2>
+<h2>💡 豆知識・注意点</h2>
 <div class="callout warn">
   <div class="ic">⚠️</div>
   <div>
@@ -2971,9 +3028,9 @@ img{max-width:100%;height:auto}
 <section id="d18" class="page">
   <div class="page-hero" style="background-image:linear-gradient(0deg,rgba(15,44,94,.35) 0%,rgba(15,44,94,.05) 55%,rgba(15,44,94,.5) 100%),url('images/hollywood-sign.jpg')">
     <div class="page-hero-inner">
-      <div class="page-hero-kicker">DAY 08 · 6/18 THU · 8日目</div>
+      <div class="page-hero-kicker">8日目 ｜ 6/18（木）</div>
       <h1 class="page-hero-title">🚗 Range Rover DAY · ハリウッドを駆け抜ける</h1>
-      <p class="page-hero-sub">LA Day-Trip · 自家運転でLA一周</p>
+      <p class="page-hero-sub">自家運転でLA一周ドライブ</p>
     </div>
   </div>
 
@@ -2987,7 +3044,7 @@ img{max-width:100%;height:auto}
     明日は帰国。最後のアメリカを満喫する一日。
   </p>
 
-  <h2>Enterprise レンタカー情報 / Rental Car Details</h2>
+  <h2>🚗 Enterprise レンタカー情報</h2>
   <div class="card accent">
     <div class="grid grid-2">
       <div>
@@ -3116,7 +3173,7 @@ img{max-width:100%;height:auto}
     </div>
   </div>
 
-  <h2>タイムライン / Timeline</h2>
+  <h2>🕐 この日の予定</h2>
   <div class="timeline">
     <div class="tl-item"><div class="tl-time">07:00</div><div class="tl-body"><div class="t">起床・朝食（Marina del Rey Marriott）</div></div></div>
     <div class="tl-item"><div class="tl-time">07:30</div><div class="tl-body"><div class="t">荷物整理・チェックリスト確認</div><div class="d">運転免許・国際免許・パスポート・クレカ</div></div></div>
@@ -3138,7 +3195,7 @@ img{max-width:100%;height:auto}
     <div class="tl-item"><div class="tl-time">21:00</div><div class="tl-body"><div class="t">😴 就寝（翌朝 LAX 早出）</div></div></div>
   </div>
 
-  <h2>訪問スポット（6/18）/ Stops <span class="en-jp">（訪問順）</span></h2>
+  <h2>📍 訪問スポット（訪問順）</h2>
   <div class="grid grid-4">
     <div class="card"><h4>① ハリウッド</h4><p class="small">Walk of Fame + TCL Theatre + Sign ビュー<br><span class="muted">2時間</span></p></div>
     <div class="card"><h4>② The Grove</h4><p class="small">オープンエア・トロリー・Farmers Market<br><span class="muted">1.5時間</span></p></div>
@@ -3154,7 +3211,7 @@ img{max-width:100%;height:auto}
     </div>
   </div>
 
-  <h2>Uber費用まとめ / Uber Cost</h2>
+  <h2>🚕 Uber費用まとめ</h2>
   <table class="tb">
     <tr><th>区間</th><th>料金</th></tr>
     <tr><td>ホテル → Enterprise（朝）</td><td>$12-18</td></tr>
@@ -3211,9 +3268,9 @@ img{max-width:100%;height:auto}
 <section id="d19" class="page">
   <div class="page-hero" style="background-image:linear-gradient(0deg,rgba(15,44,94,.35) 0%,rgba(15,44,94,.05) 55%,rgba(15,44,94,.5) 100%),url('images/marina-sunset.jpg')">
     <div class="page-hero-inner">
-      <div class="page-hero-kicker">DAY 09 · 6/19 FRI · 9日目</div>
+      <div class="page-hero-kicker">9日目 ｜ 6/19（金）</div>
       <h1 class="page-hero-title">帰国日 · Delta DL7 で羽田へ</h1>
-      <p class="page-hero-sub">Back to Tokyo · 日本へ戻る最終日</p>
+      <p class="page-hero-sub">日本へ戻る最終日</p>
     </div>
   </div>
 
@@ -3224,7 +3281,7 @@ img{max-width:100%;height:auto}
     みんなお疲れ様でした。
   </p>
 
-  <h2>帰国便 / Return Flight</h2>
+  <h2>✈️ 帰国便</h2>
   <div class="card accent">
     <h4>復路 LAX → 羽田</h4>
     <div class="info">
@@ -3278,7 +3335,7 @@ img{max-width:100%;height:auto}
     </div>
   </div>
 
-  <h2>タイムライン / Timeline</h2>
+  <h2>🕐 この日の予定</h2>
   <div class="timeline">
     <div class="tl-item"><div class="tl-time">06:30</div><div class="tl-body"><div class="t">起床</div></div></div>
     <div class="tl-item"><div class="tl-time">07:00</div><div class="tl-body"><div class="t">🍳 朝食</div></div></div>
@@ -3290,7 +3347,7 @@ img{max-width:100%;height:auto}
     <div class="tl-item"><div class="tl-time">10:20</div><div class="tl-body"><div class="t" style="color:var(--accent)">✈️ DL0007 発(機中泊・11時間40分)</div><div class="d">→ 翌 6/20 の続きはDAY 10へ</div></div></div>
   </div>
 
-  <h2>Uber費用まとめ / Uber Cost</h2>
+  <h2>🚕 Uber費用まとめ</h2>
   <table class="tb">
     <tr><th>区間</th><th>料金</th></tr>
     <tr><td>Marina del Rey → LAX（Uber XL）</td><td>$40-60</td></tr>
@@ -3310,9 +3367,9 @@ img{max-width:100%;height:auto}
 <section id="d20" class="page">
   <div class="page-hero" style="background-image:linear-gradient(0deg,rgba(15,44,94,.35) 0%,rgba(15,44,94,.05) 55%,rgba(15,44,94,.5) 100%),url('images/airplane.jpg')">
     <div class="page-hero-inner">
-      <div class="page-hero-kicker">DAY 10 · 6/20 SAT · 帰国・帰阪</div>
+      <div class="page-hero-kicker">最終日 ｜ 6/20（土）帰国</div>
       <h1 class="page-hero-title">🏠 帰国・自宅へ</h1>
-      <p class="page-hero-sub">Back Home · 羽田着→国内線で関空→自家用車で自宅へ</p>
+      <p class="page-hero-sub">羽田着 → 国内線で関空 → 自家用車で自宅へ</p>
     </div>
   </div>
 
@@ -3324,7 +3381,7 @@ img{max-width:100%;height:auto}
     お土産の整理は明日に回して、今日はみんなぐっすり眠ろう。
   </p>
 
-  <h2>✈️ フライト情報 / Flights</h2>
+  <h2>✈️ フライト情報</h2>
   <div class="card accent">
     <h4>国内線 羽田 → 関空</h4>
     <div class="info">
@@ -3348,7 +3405,7 @@ img{max-width:100%;height:auto}
     </ul>
   </div>
 
-  <h2>タイムライン / Timeline</h2>
+  <h2>🕐 この日の予定</h2>
   <div class="timeline">
     <div class="tl-item"><div class="tl-time">14:00</div><div class="tl-body"><div class="t">🛬 HND T3 着陸（Delta DL0007）</div><div class="d">13時間55分の長旅お疲れ様</div></div></div>
     <div class="tl-item"><div class="tl-time">14:30</div><div class="tl-body"><div class="t">入国審査・荷物受取</div><div class="d">電子申告活用で時短可</div></div></div>
@@ -3365,7 +3422,7 @@ img{max-width:100%;height:auto}
     <div class="tl-item"><div class="tl-time">22:00</div><div class="tl-body"><div class="t">😴 就寝（みんなお疲れ様！）</div></div></div>
   </div>
 
-  <h2>☀️ 注意事項 / Notes</h2>
+  <h2>⚠️ 注意事項</h2>
   <div class="callout warn">
     <div class="ic">⚠️</div>
     <div>
@@ -3514,7 +3571,7 @@ img{max-width:100%;height:auto}
 <section id="budget" class="page">
   <div class="page-hero compact">
     <div class="page-hero-inner">
-      <div class="page-hero-kicker">SECTION B · BUDGET · 費用総額</div>
+      <div class="page-hero-kicker">費用総額</div>
       <h1 class="page-hero-title">💰 旅の総額</h1>
     </div>
   </div>
@@ -3550,7 +3607,7 @@ img{max-width:100%;height:auto}
     <summary>
       <span class="cat-icon">🏨</span>
       <span class="cat-name">2. 宿泊（Hotels）</span>
-      <span class="cat-total">小計 参照 下記</span>
+      <span class="cat-total">下記参照</span>
     </summary>
     <table class="tb">
       <tr><th>ホテル</th><th>日程</th><th>予約番号</th><th>金額</th></tr>
@@ -3644,7 +3701,7 @@ img{max-width:100%;height:auto}
     </table>
   </details>
 
-  <h2>💳 支払い方法 / Payment Method</h2>
+  <h2>💳 支払い方法</h2>
   <div class="grid grid-3">
     <div class="card"><h4>現金準備</h4><p class="amt-l">$400 – 500</p><p class="small">屋台・チップ・少額店舗用・$1/$5/$10/$20に分散</p></div>
     <div class="card"><h4>カード</h4><p class="amt-l">$7,500 – 8,200</p><p class="small">メインカード + 予備カード・海外利用設定必須</p></div>
@@ -3664,12 +3721,12 @@ img{max-width:100%;height:auto}
 <section id="uber" class="page">
   <div class="page-hero compact">
     <div class="page-hero-inner">
-      <div class="page-hero-kicker">SECTION U · UBER · 全期間 Uber料金</div>
+      <div class="page-hero-kicker">Uber料金まとめ</div>
       <h1 class="page-hero-title">🚕 Uber料金詳細</h1>
     </div>
   </div>
 
-  <h2>全期間 Uber 総額 / Total Uber Cost</h2>
+  <h2>全期間 Uber 総額</h2>
   <table class="tb">
     <tr><th>日</th><th>主な区間</th><th>Uber 料金</th></tr>
     <tr><td>6/11 (木)</td><td>JFK → Marriott</td><td>$90-130</td></tr>
@@ -3685,7 +3742,7 @@ img{max-width:100%;height:auto}
   </table>
   <p class="small muted">※円換算（$1=155円）: <strong>¥97,000-139,000</strong>　※ホテル徒歩圏では $0 · 徒歩なら $0、必要なら正確な金額で計上</p>
 
-  <h2>日別内訳 / Daily Breakdown</h2>
+  <h2>📊 日別内訳</h2>
 
   <h3>6/11 (木) NY到着日</h3>
   <table class="tb">
@@ -3761,7 +3818,7 @@ img{max-width:100%;height:auto}
 <section id="reservations" class="page">
   <div class="page-hero compact">
     <div class="page-hero-inner">
-      <div class="page-hero-kicker">SECTION R · RESERVATIONS · 予約一覧</div>
+      <div class="page-hero-kicker">予約一覧</div>
       <h1 class="page-hero-title">📋 予約管理</h1>
     </div>
   </div>
@@ -3771,9 +3828,9 @@ img{max-width:100%;height:auto}
     <strong class="c-acc">5/13 10:00 AM と 5/15 10:00 AM</strong> のリマインダーをスマホに設定必須。
   </p>
 
-  <h2>完了済み予約 / Confirmed</h2>
+  <h2>✅ 完了済み予約</h2>
 
-  <h3>🏨 ホテル / Hotels</h3>
+  <h3>🏨 ホテル</h3>
   <div class="res-card done">
     <div class="hd">
       <div class="ttl">New York Marriott Marquis</div>
@@ -3826,7 +3883,7 @@ img{max-width:100%;height:auto}
     </div>
   </div>
 
-  <h3>✈️ フライト / Flights</h3>
+  <h3>✈️ フライト</h3>
   <div class="res-card done">
     <div class="hd"><div class="ttl">ANA 国際線（往路）NH094 + NH110</div><div class="st">✅ 予約済</div></div>
     <div class="info">
@@ -3863,7 +3920,7 @@ img{max-width:100%;height:auto}
     </div>
   </div>
 
-  <h3>🎫 チケット / Tickets</h3>
+  <h3>🎫 チケット</h3>
   <div class="res-card done">
     <div class="hd"><div class="ttl">⚽ FIFA W杯 日本 vs オランダ Cat 2 × 4席</div><div class="st">✅ 購入済</div></div>
     <div class="info">
@@ -3907,7 +3964,7 @@ img{max-width:100%;height:auto}
 
   <hr class="sep">
 
-  <h2 class="c-acc">要アクション（予約リマインダー）/ TODO</h2>
+  <h2 class="c-acc">🔔 要アクション（予約リマインダー）</h2>
 
   <div class="res-card urgent">
     <div class="hd">
@@ -3966,7 +4023,7 @@ img{max-width:100%;height:auto}
 <section id="practical" class="page">
   <div class="page-hero compact">
     <div class="page-hero-inner">
-      <div class="page-hero-kicker">SECTION P · PRACTICAL · 実用情報</div>
+      <div class="page-hero-kicker">実用情報</div>
       <h1 class="page-hero-title">🎒 実用情報</h1>
     </div>
   </div>
@@ -3976,7 +4033,7 @@ img{max-width:100%;height:auto}
     このページだけはオフラインでも参照できるよう、印刷・スクショ推奨。
   </p>
 
-  <h2>5月中までに完了 / By End of May</h2>
+  <h2>5月中までに完了</h2>
   <div class="card accent">
     <ul class="clean">
       <li>✅ <strong>国際運転免許証</strong>取得（門真運転免許試験場・¥2,350・即日発行）</li>
@@ -3989,7 +4046,7 @@ img{max-width:100%;height:auto}
     </ul>
   </div>
 
-  <h2>アプリ準備 / Apps</h2>
+  <h2>📱 アプリ準備</h2>
   <div class="grid grid-2">
     <div class="card">
       <h4>必須アプリ</h4>
@@ -4017,7 +4074,7 @@ img{max-width:100%;height:auto}
     </div>
   </div>
 
-  <h2>衣類・医薬品 / Clothing &amp; Medicine</h2>
+  <h2>👕 衣類・医薬品</h2>
   <div class="grid grid-3">
     <div class="card">
       <h4>衣類</h4>
@@ -4054,7 +4111,7 @@ img{max-width:100%;height:auto}
     </div>
   </div>
 
-  <h2>6/18 Range Rover 当日持参 / Rental Day</h2>
+  <h2>6/18 Range Rover 当日持参</h2>
   <div class="card warn">
     <ul class="clean">
       <li>🔴 日本の運転免許証 <strong>原本</strong>（コピー不可）</li>
@@ -4069,14 +4126,14 @@ img{max-width:100%;height:auto}
 
   <hr class="sep">
 
-  <h2>米国緊急連絡 / US Emergency</h2>
+  <h2>🆘 米国緊急連絡</h2>
   <table class="tb">
     <tr><th>用途</th><th>電話番号</th></tr>
     <tr><td>🚨 救急・警察・消防</td><td class="w-bold c-ng">911</td></tr>
     <tr><td>Non-emergency（NYC）</td><td>311</td></tr>
   </table>
 
-  <h2>日本領事館 / Japanese Consulates</h2>
+  <h2>🏯 日本領事館</h2>
   <table class="tb">
     <tr><th>所管</th><th>電話番号</th></tr>
     <tr><td>在ニューヨーク総領事館</td><td>+1 212-371-8222</td></tr>
@@ -4084,7 +4141,7 @@ img{max-width:100%;height:auto}
     <tr><td>在ロサンゼルス総領事館</td><td>+1 213-617-6700</td></tr>
   </table>
 
-  <h2>ホテル / Hotels</h2>
+  <h2>🏨 ホテル</h2>
   <table class="tb">
     <tr><th>ホテル</th><th>電話番号</th></tr>
     <tr><td>Marriott Marquis NYC</td><td>+1-212-398-1900</td></tr>
@@ -4093,7 +4150,7 @@ img{max-width:100%;height:auto}
     <tr><td>Marriott Marina del Rey</td><td>Marriott予約App参照</td></tr>
   </table>
 
-  <h2>レストラン・アクティビティ / Venues</h2>
+  <h2>🍽️ レストラン・アクティビティ</h2>
   <table class="tb">
     <tr><th>施設</th><th>電話番号</th></tr>
     <tr><td>Locanda Verde</td><td>+1 (212) 925-3797</td></tr>
@@ -4104,7 +4161,7 @@ img{max-width:100%;height:auto}
     <tr><td>Mulberry Street Bar</td><td>+1 212-226-9345</td></tr>
   </table>
 
-  <h2>レンタカー / Rental</h2>
+  <h2>🚗 レンタカー</h2>
   <table class="tb">
     <tr><th>連絡先</th><th>電話番号</th></tr>
     <tr><td>Enterprise Marina del Rey</td><td>+1 310-827-7800</td></tr>
@@ -4128,12 +4185,12 @@ img{max-width:100%;height:auto}
 </main>
 
 <div class="page-nav">
-  <button id="prev-btn" class="nav-btn"><span>◀</span><span>前へ</span></button>
+  <button id="prev-btn" class="nav-btn" aria-label="前のページ"><span>◀</span><span class="label">前へ</span></button>
   <div class="page-indicator">
-    <span id="page-counter">1 / 16</span>
+    <span id="page-counter">1 / 19</span>
     <div class="dots" id="dots"></div>
   </div>
-  <button id="next-btn" class="nav-btn"><span>次へ</span><span>▶</span></button>
+  <button id="next-btn" class="nav-btn" aria-label="次のページ"><span class="label">次へ</span><span>▶</span></button>
 </div>
 </div>
 
@@ -4164,11 +4221,21 @@ document.addEventListener('DOMContentLoaded', function() {
     if (navItem) navItem.classList.add('active');
     dots[index]?.classList.add('active');
     currentIndex = index;
-    document.getElementById('page-counter').textContent = `${String(index + 1).padStart(2,'0')} / ${String(pages.length).padStart(2,'0')}`;
+    let label = '';
+    if (navItem) {
+      const clone = navItem.cloneNode(true);
+      const num = clone.querySelector('.n');
+      const numTxt = num ? num.textContent.trim() : '';
+      if (num) num.remove();
+      label = (numTxt ? numTxt + ' ' : '') + clone.textContent.trim();
+    }
+    document.getElementById('page-counter').textContent =
+      `${String(index + 1).padStart(2,'0')}/${String(pages.length).padStart(2,'0')}` + (label ? ' · ' + label : '');
     document.getElementById('prev-btn').disabled = index === 0;
     document.getElementById('next-btn').disabled = index === pages.length - 1;
     const content = document.querySelector('.content');
     content && content.scrollTo({ top: 0, behavior: 'instant' });
+    window.scrollTo({ top: 0, behavior: 'instant' }); // スマホ幅では window がスクローラー
     try { localStorage.setItem('travelGuideV6Page', index); } catch (e) {}
   }
 
@@ -4423,6 +4490,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var map = L.map(el, {
       scrollWheelZoom: false,
+      dragging: !L.Browser.mobile, // スマホは1本指＝ページスクロール優先（地図操作は±ボタンと2本指）
       zoomControl: true,
       attributionControl: true
     });
@@ -4488,6 +4556,7 @@ document.addEventListener('DOMContentLoaded', function() {
   ready(function(){
     var reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
     var content = document.querySelector('.content');
+    var winScroll = !!(window.matchMedia && window.matchMedia('(max-width:960px)').matches); // スマホ幅は window がスクローラー
 
     function fmt(n){ try { return Number(n).toLocaleString('en-US'); } catch(e){ return ''+n; } }
 
@@ -4495,10 +4564,24 @@ document.addEventListener('DOMContentLoaded', function() {
     var THEMES = { d10:'theme-nyc', d11:'theme-nyc', d12:'theme-nyc', d13:'theme-dallas', d14:'theme-wc', d15:'theme-disney', d16:'theme-disney', d17:'theme-dodgers', d18:'theme-hollywood' };
     Object.keys(THEMES).forEach(function(id){ var s = document.getElementById(id); if (s) s.classList.add(THEMES[id]); });
 
+    /* ---------- v18. 「この日の予定」を各日ページの先頭（ヒーロー直後）へ移動 ---------- */
+    Array.prototype.forEach.call(document.querySelectorAll('.page'), function(page){
+      var schedH2 = null, hero = null;
+      Array.prototype.forEach.call(page.children, function(el){
+        if (el.tagName === 'H2' && !schedH2 && /この日の予定|試合日の予定/.test(el.textContent)) schedH2 = el;
+        if (!hero && el.classList && el.classList.contains('page-hero')) hero = el;
+      });
+      if (!schedH2 || !hero) return;
+      var anchor = hero.nextSibling;
+      var block = [schedH2], n = schedH2.nextElementSibling;
+      while (n && n.tagName !== 'H2'){ block.push(n); n = n.nextElementSibling; }
+      block.forEach(function(el){ page.insertBefore(el, anchor); });
+    });
+
     /* ---------- B+C. アコーディオン化（豆知識・持ち物・気候・レストラン詳細） ---------- */
     function shouldFold(t){
       t = (t||'').trim();
-      if (/チケット|Ticket|座席|Seat|マップ|タイムライン|Timeline|試合/.test(t)) return false; // 重要情報は折りたたまない
+      if (/予定|チケット|Ticket|座席|Seat|マップ|タイムライン|Timeline|試合/.test(t)) return false; // 重要情報は折りたたまない
       if (/豆知識・注意点/.test(t)) return true;
       if (/持ち物チェック/.test(t)) return true;
       if (/気候・服装/.test(t)) return true;
@@ -4571,7 +4654,7 @@ document.addEventListener('DOMContentLoaded', function() {
           if (el.classList.contains('lead')){ finalizeLead(el); io.unobserve(el); return; }
           el.classList.add('reveal-in'); io.unobserve(el);
         });
-      }, { root: content || null, threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+      }, { root: (winScroll ? null : content) || null, threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
     }
 
     // lead を observe（表示されたページで計測）
@@ -4615,7 +4698,7 @@ document.addEventListener('DOMContentLoaded', function() {
           var pg = m.target;
           if (!pg.classList || !pg.classList.contains('active')) return;
           requestAnimationFrame(function(){
-            var cr = content ? content.getBoundingClientRect() : {top:0, bottom:(window.innerHeight||0)};
+            var cr = (!winScroll && content) ? content.getBoundingClientRect() : {top:0, bottom:(window.innerHeight||0)};
             function inView(el){ var r = el.getBoundingClientRect(); return r.top < cr.bottom && r.bottom > cr.top; }
             Array.prototype.forEach.call(pg.querySelectorAll('.js-reveal:not(.reveal-in)'), function(el){ if (inView(el)){ el.classList.add('reveal-in'); io.unobserve(el); } });
             Array.prototype.forEach.call(pg.querySelectorAll('.lead[data-lead-pending]'), function(el){ if (inView(el)){ finalizeLead(el); io.unobserve(el); } });
@@ -4665,11 +4748,19 @@ document.addEventListener('DOMContentLoaded', function() {
       var btn = document.createElement('button');
       btn.id = 'to-top'; btn.type = 'button'; btn.setAttribute('aria-label','上へ戻る'); btn.textContent = '↑';
       document.body.appendChild(btn);
-      var scroller = content || window;
-      function getTop(){ return content ? content.scrollTop : (window.pageYOffset || 0); }
+      function getTop(){
+        var c = content ? content.scrollTop : 0;
+        var w = window.pageYOffset || document.documentElement.scrollTop || 0;
+        return Math.max(c, w); // PCは.content、スマホはwindowがスクローラー
+      }
       function onScroll(){ if (getTop() > 300) btn.classList.add('show'); else btn.classList.remove('show'); }
-      scroller.addEventListener('scroll', onScroll, {passive:true});
-      btn.addEventListener('click', function(){ scroller.scrollTo({ top:0, behavior: reduce ? 'auto' : 'smooth' }); });
+      if (content) content.addEventListener('scroll', onScroll, {passive:true});
+      window.addEventListener('scroll', onScroll, {passive:true});
+      btn.addEventListener('click', function(){
+        var b = reduce ? 'auto' : 'smooth';
+        if (content) content.scrollTo({ top:0, behavior:b });
+        window.scrollTo({ top:0, behavior:b });
+      });
       onScroll();
     })();
   });
@@ -4784,7 +4875,26 @@ document.addEventListener('DOMContentLoaded', function() {
       wrap.className = 'table-wrap';
       parent.insertBefore(wrap, tb);
       wrap.appendChild(tb);
+      var hint = document.createElement('div');
+      hint.className = 'table-scroll-hint';
+      hint.textContent = '👉 表は横にスクロールできます';
+      wrap.parentNode.insertBefore(hint, wrap);
     });
+
+    // 実際に横スクロールが発生している表だけヒントを表示
+    function markScrollable(){
+      Array.prototype.forEach.call(document.querySelectorAll('.table-wrap'), function(w){
+        var hint = w.previousElementSibling;
+        if (!hint || !hint.classList || !hint.classList.contains('table-scroll-hint')) return;
+        hint.classList.toggle('show', w.scrollWidth > w.clientWidth + 4);
+      });
+    }
+    window.addEventListener('resize', markScrollable);
+    window.addEventListener('load', markScrollable);
+    document.addEventListener('toggle', function(){ requestAnimationFrame(markScrollable); }, true);
+    var mo = new MutationObserver(function(){ requestAnimationFrame(markScrollable); });
+    Array.prototype.forEach.call(document.querySelectorAll('.page'), function(p){ mo.observe(p, {attributes:true, attributeFilter:['class']}); });
+    markScrollable();
   });
 })();
 </script>
